@@ -46,6 +46,9 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
     
+    Movie *movie = (self.movies)[indexPath.row];
+    cell.textLabel.text = movie.title;
+    cell.detailTextLabel.text = @"Testing";
     
     /*
     Player *player = (self.players)[indexPath.row];

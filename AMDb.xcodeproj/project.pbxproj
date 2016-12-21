@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0EC0428AB0171B934F8A34C6 /* Pods_AMDbUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E9A1C21931CAAF33E4C279D /* Pods_AMDbUITests.framework */; };
 		865E17EBC8CDD1BBD884ED92 /* Pods_AMDbTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BBA11B3D9E67DE9EBA4AFA /* Pods_AMDbTests.framework */; };
+		F41952A71E0ADEC200BD2F59 /* large_Arrival-Poster-2016.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F41952A61E0ADEC200BD2F59 /* large_Arrival-Poster-2016.jpg */; };
 		F434C4F31E0AB43D00445A7F /* MoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F434C4F21E0AB43D00445A7F /* MoviesViewController.m */; };
 		F434C4F61E0AC06300445A7F /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = F434C4F51E0AC06300445A7F /* Movie.m */; };
 		F4947CA41E0997C00078D984 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F4947CA31E0997C00078D984 /* main.m */; };
@@ -19,7 +20,6 @@
 		F4947CB21E0997C00078D984 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4947CB01E0997C00078D984 /* LaunchScreen.storyboard */; };
 		F4947CBD1E0997C00078D984 /* AMDbTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F4947CBC1E0997C00078D984 /* AMDbTests.m */; };
 		F4947CC81E0997C00078D984 /* AMDbUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F4947CC71E0997C00078D984 /* AMDbUITests.m */; };
-		F92E5F0E968CD1159E625027 /* Pods_AMDb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7411A4A2F0D10F342DDE59B /* Pods_AMDb.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +62,7 @@
 		D8B75A360B2F8AE71E0BFB67 /* Pods-AMDbTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AMDbTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AMDbTests/Pods-AMDbTests.release.xcconfig"; sourceTree = "<group>"; };
 		D8BBA11B3D9E67DE9EBA4AFA /* Pods_AMDbTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AMDbTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7411A4A2F0D10F342DDE59B /* Pods_AMDb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AMDb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F41952A61E0ADEC200BD2F59 /* large_Arrival-Poster-2016.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "large_Arrival-Poster-2016.jpg"; sourceTree = "<group>"; };
 		F434C4F11E0AB43D00445A7F /* MoviesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviesViewController.h; sourceTree = "<group>"; };
 		F434C4F21E0AB43D00445A7F /* MoviesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviesViewController.m; sourceTree = "<group>"; };
 		F434C4F41E0AC06300445A7F /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
@@ -89,7 +90,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F92E5F0E968CD1159E625027 /* Pods_AMDb.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +135,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F41952A51E0ADEB000BD2F59 /* Posters */ = {
+			isa = PBXGroup;
+			children = (
+				F41952A61E0ADEC200BD2F59 /* large_Arrival-Poster-2016.jpg */,
+			);
+			name = Posters;
+			sourceTree = "<group>";
+		};
 		F434C4EF1E0AA4A900445A7F /* GUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +172,7 @@
 		F4947C961E0997C00078D984 = {
 			isa = PBXGroup;
 			children = (
+				F41952A51E0ADEB000BD2F59 /* Posters */,
 				F4947CA11E0997C00078D984 /* AMDb */,
 				F4947CBB1E0997C00078D984 /* AMDbTests */,
 				F4947CC61E0997C00078D984 /* AMDbUITests */,
@@ -231,7 +240,6 @@
 				F4947C9C1E0997C00078D984 /* Frameworks */,
 				F4947C9D1E0997C00078D984 /* Resources */,
 				F4947CD81E099CD60078D984 /* Embed Frameworks */,
-				F434C4EE1E0A8EAC00445A7F /* Run Script */,
 				6D67EFFEB5005622F567A2CB /* [CP] Embed Pods Frameworks */,
 				894874CA0CF24C1954F09130 /* [CP] Copy Pods Resources */,
 			);
@@ -339,6 +347,7 @@
 				F4947CB21E0997C00078D984 /* LaunchScreen.storyboard in Resources */,
 				F4947CAF1E0997C00078D984 /* Assets.xcassets in Resources */,
 				F4947CAD1E0997C00078D984 /* Main.storyboard in Resources */,
+				F41952A71E0ADEC200BD2F59 /* large_Arrival-Poster-2016.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,20 +502,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AMDbTests/Pods-AMDbTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		F434C4EE1E0A8EAC00445A7F /* Run Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Run Script";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"\t";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -667,12 +662,9 @@
 			baseConfigurationReference = 8AE3308131A87900A3A76C6B /* Pods-AMDb.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = AMDb/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = ZupBraz.AMDb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -683,16 +675,9 @@
 			baseConfigurationReference = 4B1E7097D110EE860EBDE069 /* Pods-AMDb.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
-				"FRAMEWORK_SEARCH_PATHS[arch=*]" = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = AMDb/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = ZupBraz.AMDb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

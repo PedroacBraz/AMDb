@@ -32,17 +32,52 @@
     movie.shortSynopsis = @"ETs talking to some people";
     movie.fullSynopsis = @"ETs talking to some people. And it's really awesome. Feels like Inception";
     [_movies addObject:movie];
-   
     
-    //UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
-    //UINavigationController *navigationController = [tabBarController viewControllers][0];
-    // PlayersViewController *playersViewController = [navigationController viewControllers][0];
-    // playersViewController.players = _players;
+    movie = [[Movie alloc] init];
+    movie.title = @"Arrival2";
+    movie.year = 2016;
+    movie.rating = 9.9;
+    movie.shortSynopsis = @"ETs talking to some people";
+    movie.fullSynopsis = @"ETs talking to some people. And it's really awesome. Feels like Inception";
+    [_movies addObject:movie];
     
+    movie = [[Movie alloc] init];
+    movie.title = @"Arrival3";
+    movie.year = 2016;
+    movie.rating = 9.9;
+    movie.shortSynopsis = @"ETs talking to some people";
+    movie.fullSynopsis = @"ETs talking to some people. And it's really awesome. Feels like Inception";
+    [_movies addObject:movie];
     
-    UITableViewController *tabViewController = (UITableViewController *)self.window.rootViewController;
-    UINavigationController *navigationController = [tabViewController navigationController];
+    movie = [[Movie alloc] init];
+    movie.title = @"Arrival4";
+    movie.year = 2016;
+    movie.rating = 9.9;
+    movie.shortSynopsis = @"ETs talking to some people";
+    movie.fullSynopsis = @"ETs talking to some people. And it's really awesome. Feels like Inception";
+    [_movies addObject:movie];
+    
+    movie = [[Movie alloc] init];
+    movie.title = @"Arrival5";
+    movie.year = 2016;
+    movie.rating = 9.9;
+    movie.shortSynopsis = @"ETs talking to some people";
+    movie.fullSynopsis = @"ETs talking to some people. And it's really awesome. Feels like Inception";
+    [_movies addObject:movie];
+    
+    movie = [[Movie alloc] init];
+    movie.title = @"Arrival6";
+    movie.year = 2016;
+    movie.rating = 9.9;
+    movie.shortSynopsis = @"ETs talking to some people";
+    movie.fullSynopsis = @"ETs talking to some people. And it's really awesome. Feels like Inception";
+    [_movies addObject:movie];
+
+    //Gets the Navigatin controller on the root
+    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+    //Gets the moviesViewController in the first index of the navigator controller
     MoviesViewController *moviesViewController = [navigationController viewControllers][0];
+    
     moviesViewController.movies = _movies;
                                                     
     
