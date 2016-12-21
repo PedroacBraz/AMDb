@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0EC0428AB0171B934F8A34C6 /* Pods_AMDbUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E9A1C21931CAAF33E4C279D /* Pods_AMDbUITests.framework */; };
 		865E17EBC8CDD1BBD884ED92 /* Pods_AMDbTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BBA11B3D9E67DE9EBA4AFA /* Pods_AMDbTests.framework */; };
+		F434C4F31E0AB43D00445A7F /* MoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F434C4F21E0AB43D00445A7F /* MoviesViewController.m */; };
 		F4947CA41E0997C00078D984 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F4947CA31E0997C00078D984 /* main.m */; };
 		F4947CA71E0997C00078D984 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F4947CA61E0997C00078D984 /* AppDelegate.m */; };
 		F4947CAA1E0997C00078D984 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4947CA91E0997C00078D984 /* ViewController.m */; };
@@ -63,6 +64,8 @@
 		D8B75A360B2F8AE71E0BFB67 /* Pods-AMDbTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AMDbTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AMDbTests/Pods-AMDbTests.release.xcconfig"; sourceTree = "<group>"; };
 		D8BBA11B3D9E67DE9EBA4AFA /* Pods_AMDbTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AMDbTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7411A4A2F0D10F342DDE59B /* Pods_AMDb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AMDb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F434C4F11E0AB43D00445A7F /* MoviesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviesViewController.h; sourceTree = "<group>"; };
+		F434C4F21E0AB43D00445A7F /* MoviesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviesViewController.m; sourceTree = "<group>"; };
 		F4947C9F1E0997C00078D984 /* AMDb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AMDb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4947CA31E0997C00078D984 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F4947CA51E0997C00078D984 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -152,6 +155,8 @@
 		F434C4F01E0AA4BC00445A7F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F434C4F11E0AB43D00445A7F /* MoviesViewController.h */,
+				F434C4F21E0AB43D00445A7F /* MoviesViewController.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -514,6 +519,7 @@
 				F4947CAA1E0997C00078D984 /* ViewController.m in Sources */,
 				F4947CA71E0997C00078D984 /* AppDelegate.m in Sources */,
 				F4947CA41E0997C00078D984 /* main.m in Sources */,
+				F434C4F31E0AB43D00445A7F /* MoviesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -681,7 +687,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "$(inherited) $(PROJECT_DIR)";
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = AMDb/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ZupBraz.AMDb;
