@@ -15,6 +15,8 @@
 		F4947CB21E0997C00078D984 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4947CB01E0997C00078D984 /* LaunchScreen.storyboard */; };
 		F4947CBD1E0997C00078D984 /* AMDbTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F4947CBC1E0997C00078D984 /* AMDbTests.m */; };
 		F4947CC81E0997C00078D984 /* AMDbUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F4947CC71E0997C00078D984 /* AMDbUITests.m */; };
+		F4947CD61E099CD60078D984 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4947CD51E099CD60078D984 /* Realm.framework */; };
+		F4947CD71E099CD60078D984 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F4947CD51E099CD60078D984 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		F4947CD81E099CD60078D984 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F4947CD71E099CD60078D984 /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		F4947C9F1E0997C00078D984 /* AMDb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AMDb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4947CA31E0997C00078D984 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -51,6 +67,7 @@
 		F4947CC31E0997C00078D984 /* AMDbUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AMDbUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4947CC71E0997C00078D984 /* AMDbUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMDbUITests.m; sourceTree = "<group>"; };
 		F4947CC91E0997C00078D984 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4947CD51E099CD60078D984 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4947CD61E099CD60078D984 /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +99,7 @@
 		F4947C961E0997C00078D984 = {
 			isa = PBXGroup;
 			children = (
+				F4947CD51E099CD60078D984 /* Realm.framework */,
 				F4947CA11E0997C00078D984 /* AMDb */,
 				F4947CBB1E0997C00078D984 /* AMDbTests */,
 				F4947CC61E0997C00078D984 /* AMDbUITests */,
@@ -150,6 +169,8 @@
 				F4947C9B1E0997C00078D984 /* Sources */,
 				F4947C9C1E0997C00078D984 /* Frameworks */,
 				F4947C9D1E0997C00078D984 /* Resources */,
+				F4947CD81E099CD60078D984 /* Embed Frameworks */,
+				F434C4EE1E0A8EAC00445A7F /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -267,6 +288,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F434C4EE1E0A8EAC00445A7F /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"\t";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F4947C9B1E0997C00078D984 /* Sources */ = {
@@ -422,6 +460,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = AMDb/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ZupBraz.AMDb;
@@ -433,6 +475,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = AMDb/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ZupBraz.AMDb;
@@ -505,6 +555,7 @@
 				F4947CCE1E0997C00078D984 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F4947CCF1E0997C00078D984 /* Build configuration list for PBXNativeTarget "AMDbTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +564,7 @@
 				F4947CD11E0997C00078D984 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F4947CD21E0997C00078D984 /* Build configuration list for PBXNativeTarget "AMDbUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +573,7 @@
 				F4947CD41E0997C00078D984 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
