@@ -7,6 +7,7 @@
 //
 
 #import "MoviesViewController.h"
+#import "Movie.h"
 
 @interface MoviesViewController ()
 
@@ -32,24 +33,29 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
+
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 1;
+
+    return [self.movies count];
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
     
-    // Configure the cell...
+    
+    /*
+    Player *player = (self.players)[indexPath.row];
+    cell.textLabel.text = player.name;
+    cell.detailTextLabel.text = player.game;
+    */
+    
     
     return cell;
 }
-*/
 
 /*
 // Override to support conditional editing of the table view.

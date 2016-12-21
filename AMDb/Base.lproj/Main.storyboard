@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Entry - Favorite Movies-->
+        <!--Favorite Movies-->
         <scene sceneID="RCd-JK-S8m">
             <objects>
-                <tableViewController title="Entry - Favorite Movies" id="qHk-X2-yvh" customClass="MoviesViewController" sceneMemberID="viewController">
+                <tableViewController title="Favorite Movies" id="qHk-X2-yvh" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="170" sectionHeaderHeight="28" sectionFooterHeight="28" id="JUq-dX-E7V">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -60,6 +60,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="7Wc-xZ-Khd" kind="modal" id="JN5-GK-iC4"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -69,7 +72,11 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="My Movies" id="mBF-cD-4cE">
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="TDN-pE-Rnu"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="TDN-pE-Rnu">
+                            <connections>
+                                <segue destination="3ae-TT-bHX" kind="modal" id="8yT-Mb-FBb"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
@@ -85,14 +92,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="KGl-o7-s8L">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="170" id="kBZ-6A-HZG">
-                                <rect key="frame" x="0.0" y="72" width="375" height="170"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="170"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kBZ-6A-HZG" id="oRe-Zg-POb">
                                     <rect key="frame" x="0.0" y="0.0" width="342" height="169"/>
@@ -133,6 +135,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="7Wc-xZ-Khd" kind="modal" id="aLO-EB-XfU"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -140,10 +145,18 @@
                             <outlet property="delegate" destination="r2o-Eg-D2X" id="fck-zI-bby"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Movies Search" id="j1t-ES-jPb">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="AXz-r7-AbS">
+                            <connections>
+                                <segue destination="cSc-V4-kLX" kind="modal" id="DTj-3c-yVe"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="AHp-2U-6gh"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JkO-m2-m9Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3764" y="122.78860569715144"/>
+            <point key="canvasLocation" x="5407.1999999999998" y="-373.76311844077964"/>
         </scene>
         <!--FullMovieScreen-->
         <scene sceneID="tNg-6t-1U6">
@@ -224,7 +237,7 @@
                     </items>
                 </navigationBar>
             </objects>
-            <point key="canvasLocation" x="4884" y="122.78860569715144"/>
+            <point key="canvasLocation" x="6748" y="130.88455772113943"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gcn-Y8-3IW">
@@ -244,5 +257,26 @@
             </objects>
             <point key="canvasLocation" x="1696.8" y="130.88455772113943"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="l9Z-XN-271">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3ae-TT-bHX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Nsd-qV-wN1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="r2o-Eg-D2X" kind="relationship" relationship="rootViewController" id="9HC-nB-h0q"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wys-Wb-Xq1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4468" y="-374.66266866566718"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="JN5-GK-iC4"/>
+    </inferredMetricsTieBreakers>
 </document>

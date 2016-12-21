@@ -10,6 +10,7 @@
 		0EC0428AB0171B934F8A34C6 /* Pods_AMDbUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E9A1C21931CAAF33E4C279D /* Pods_AMDbUITests.framework */; };
 		865E17EBC8CDD1BBD884ED92 /* Pods_AMDbTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BBA11B3D9E67DE9EBA4AFA /* Pods_AMDbTests.framework */; };
 		F434C4F31E0AB43D00445A7F /* MoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F434C4F21E0AB43D00445A7F /* MoviesViewController.m */; };
+		F434C4F61E0AC06300445A7F /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = F434C4F51E0AC06300445A7F /* Movie.m */; };
 		F4947CA41E0997C00078D984 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F4947CA31E0997C00078D984 /* main.m */; };
 		F4947CA71E0997C00078D984 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F4947CA61E0997C00078D984 /* AppDelegate.m */; };
 		F4947CAA1E0997C00078D984 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4947CA91E0997C00078D984 /* ViewController.m */; };
@@ -18,8 +19,6 @@
 		F4947CB21E0997C00078D984 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4947CB01E0997C00078D984 /* LaunchScreen.storyboard */; };
 		F4947CBD1E0997C00078D984 /* AMDbTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F4947CBC1E0997C00078D984 /* AMDbTests.m */; };
 		F4947CC81E0997C00078D984 /* AMDbUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F4947CC71E0997C00078D984 /* AMDbUITests.m */; };
-		F4947CD61E099CD60078D984 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4947CD51E099CD60078D984 /* Realm.framework */; };
-		F4947CD71E099CD60078D984 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F4947CD51E099CD60078D984 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F92E5F0E968CD1159E625027 /* Pods_AMDb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7411A4A2F0D10F342DDE59B /* Pods_AMDb.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,7 +46,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F4947CD71E099CD60078D984 /* Realm.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -66,6 +64,8 @@
 		E7411A4A2F0D10F342DDE59B /* Pods_AMDb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AMDb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F434C4F11E0AB43D00445A7F /* MoviesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviesViewController.h; sourceTree = "<group>"; };
 		F434C4F21E0AB43D00445A7F /* MoviesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviesViewController.m; sourceTree = "<group>"; };
+		F434C4F41E0AC06300445A7F /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
+		F434C4F51E0AC06300445A7F /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
 		F4947C9F1E0997C00078D984 /* AMDb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AMDb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4947CA31E0997C00078D984 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F4947CA51E0997C00078D984 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -82,7 +82,6 @@
 		F4947CC31E0997C00078D984 /* AMDbUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AMDbUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4947CC71E0997C00078D984 /* AMDbUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMDbUITests.m; sourceTree = "<group>"; };
 		F4947CC91E0997C00078D984 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F4947CD51E099CD60078D984 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +89,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4947CD61E099CD60078D984 /* Realm.framework in Frameworks */,
 				F92E5F0E968CD1159E625027 /* Pods_AMDb.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -156,6 +154,8 @@
 			isa = PBXGroup;
 			children = (
 				F434C4F11E0AB43D00445A7F /* MoviesViewController.h */,
+				F434C4F41E0AC06300445A7F /* Movie.h */,
+				F434C4F51E0AC06300445A7F /* Movie.m */,
 				F434C4F21E0AB43D00445A7F /* MoviesViewController.m */,
 			);
 			name = Model;
@@ -164,7 +164,6 @@
 		F4947C961E0997C00078D984 = {
 			isa = PBXGroup;
 			children = (
-				F4947CD51E099CD60078D984 /* Realm.framework */,
 				F4947CA11E0997C00078D984 /* AMDb */,
 				F4947CBB1E0997C00078D984 /* AMDbTests */,
 				F4947CC61E0997C00078D984 /* AMDbUITests */,
@@ -518,6 +517,7 @@
 			files = (
 				F4947CAA1E0997C00078D984 /* ViewController.m in Sources */,
 				F4947CA71E0997C00078D984 /* AppDelegate.m in Sources */,
+				F434C4F61E0AC06300445A7F /* Movie.m in Sources */,
 				F4947CA41E0997C00078D984 /* main.m in Sources */,
 				F434C4F31E0AB43D00445A7F /* MoviesViewController.m in Sources */,
 			);
@@ -614,7 +614,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -655,7 +655,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

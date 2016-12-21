@@ -7,16 +7,45 @@
 //
 
 #import "AppDelegate.h"
+#import "Movie.h"
+#import "MoviesViewController.h"
 
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
+{
+    NSMutableArray *_movies;
+}
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    _movies = [NSMutableArray arrayWithCapacity:20];
+    
+    Movie *movie = [[Movie alloc] init];
+    movie.title = @"Arrival";
+    movie.year = 2016;
+    movie.rating = 9.9;
+    movie.shortSynopsis = @"ETs talking to some people";
+    movie.fullSynopsis = @"ETs talking to some people. And it's really awesome. Feels like Inception";
+    [_movies addObject:movie];
+   
+    
+    //UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    //UINavigationController *navigationController = [tabBarController viewControllers][0];
+    // PlayersViewController *playersViewController = [navigationController viewControllers][0];
+    // playersViewController.players = _players;
+    
+    
+    UITableViewController *tabViewController = (UITableViewController *)self.window.rootViewController;
+    UINavigationController *navigationController = [tabViewController navigationController];
+    MoviesViewController *moviesViewController = [navigationController viewControllers][0];
+    moviesViewController.movies = _movies;
+                                                    
+    
     return YES;
 }
 
