@@ -26,51 +26,53 @@
     _movies = [NSMutableArray arrayWithCapacity:20];
     
     Movie *movie = [[Movie alloc] init];
+    movie.moviePoster = [UIImage imageNamed:@"posterArrival.jpg"];
     movie.title = @"Arrival";
-    movie.year = 2016;
-    movie.rating = 9.9;
+    movie.year = @"2016";
+    movie.rating = @"9.9";
     movie.shortSynopsis = @"ETs talking to some people";
     movie.fullSynopsis = @"ETs talking to some people. And it's really awesome. Feels like Inception";
     [_movies addObject:movie];
     
     movie = [[Movie alloc] init];
-    movie.title = @"Arrival2";
-    movie.year = 2016;
-    movie.rating = 9.9;
-    movie.shortSynopsis = @"ETs talking to some people";
-    movie.fullSynopsis = @"ETs talking to some people. And it's really awesome. Feels like Inception";
+    movie.moviePoster = [UIImage imageNamed:@"posterRogueOne.jpg"];
+    movie.title = @"Rogue One";
+    movie.year = @"2016";
+    movie.rating = @"10.0";
+    movie.shortSynopsis = @"I'm one with the Force. The Force is with me. I'm one with the Force. The Force is with me.I'm one with the Force. The Force is with me.I'm one with the Force. The Force is with me.I'm one with the Force. The Force is with me.I'm one with the Force. The Force is with me.I'm one with the Force. The Force is with me.";
+    movie.fullSynopsis = @"I'm one with the Force. The Force is with me. I'm one with the Force. The Force is with me.I'm one with the Force. The Force is with me.I'm one with the Force. The Force is with me.I'm one with the Force. The Force is with me.I'm one with the Force. The Force is with me.I'm one with the Force. The Force is with me. Gotta watch the other ones";
     [_movies addObject:movie];
     
     movie = [[Movie alloc] init];
-    movie.title = @"Arrival3";
-    movie.year = 2016;
-    movie.rating = 9.9;
-    movie.shortSynopsis = @"ETs talking to some people";
-    movie.fullSynopsis = @"ETs talking to some people. And it's really awesome. Feels like Inception";
+    movie.title = @"St. Cloverfield";
+    movie.year = @"2016";
+    movie.rating = @"1.0";
+    movie.shortSynopsis = @"ETs killing some people";
+    movie.fullSynopsis = @"ETs killing some people. Started nice.";
     [_movies addObject:movie];
     
     movie = [[Movie alloc] init];
-    movie.title = @"Arrival4";
-    movie.year = 2016;
-    movie.rating = 9.9;
-    movie.shortSynopsis = @"ETs talking to some people";
-    movie.fullSynopsis = @"ETs talking to some people. And it's really awesome. Feels like Inception";
+    movie.title = @"Civil War";
+    movie.year = @"2016";
+    movie.rating = @"8.0";
+    movie.shortSynopsis = @"Avengers fight";
+    movie.fullSynopsis = @"Avengers fight. Spider-man appears";
     [_movies addObject:movie];
     
     movie = [[Movie alloc] init];
     movie.title = @"Arrival5";
-    movie.year = 2016;
-    movie.rating = 9.9;
-    movie.shortSynopsis = @"ETs talking to some people";
-    movie.fullSynopsis = @"ETs talking to some people. And it's really awesome. Feels like Inception";
+    movie.year = @"2016";
+    movie.rating = @"9.9";
+    movie.shortSynopsis = @"ETs talking to some people12345";
+    movie.fullSynopsis = @"ETs talking to some people12345. And it's really awesome. Feels like Inception";
     [_movies addObject:movie];
     
     movie = [[Movie alloc] init];
     movie.title = @"Arrival6";
-    movie.year = 2016;
-    movie.rating = 9.9;
-    movie.shortSynopsis = @"ETs talking to some people";
-    movie.fullSynopsis = @"ETs talking to some people. And it's really awesome. Feels like Inception";
+    movie.year = @"2016";
+    movie.rating = @"7.9";
+    movie.shortSynopsis = @"ETs talking to some people12345678";
+    movie.fullSynopsis = @"ETs talking to some people12345678. And it's really awesome. Feels like Inception";
     [_movies addObject:movie];
 
     //Gets the Navigatin controller on the root

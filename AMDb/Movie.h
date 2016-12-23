@@ -7,14 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface Movie : NSObject
-    
+
+// Movie's attributes
+
 @property (nonatomic, copy) NSString *title;
-@property (nonatomic, assign) int year;
-@property (nonatomic, assign) float rating;
+@property (nonatomic, copy) NSString *year;
+@property (nonatomic, copy) NSString *rating;
 @property (nonatomic, copy) NSString *shortSynopsis;
 @property (nonatomic, copy) NSString *fullSynopsis;
-    
+@property (nonatomic, copy) UIImage *moviePoster;
 
 @end

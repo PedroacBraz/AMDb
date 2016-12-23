@@ -8,6 +8,7 @@
 
 #import "MoviesViewController.h"
 #import "Movie.h"
+#import "MovieCell.h"
 
 @interface MoviesViewController ()
 
@@ -44,20 +45,50 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
+    MovieCell *cell = (MovieCell *) [tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
+    
+    // Configure what the cell must display
     
     Movie *movie = (self.movies)[indexPath.row];
-    cell.textLabel.text = movie.title;
-    cell.detailTextLabel.text = @"Testing";
+    
+    cell.posterImageView.image = movie.moviePoster;
+    cell.titleLabel.text = movie.title;
+    cell.yearLabel.text = movie.year;
+    cell.ratingLabel.text = @"Rating: ";
+    cell.ratingLabel.text = [cell.ratingLabel.text stringByAppendingString:movie.rating];
+    cell.shortSynLabel.text = movie.shortSynopsis;
+    
     
     /*
-    Player *player = (self.players)[indexPath.row];
-    cell.textLabel.text = player.name;
-    cell.detailTextLabel.text = player.game;
-    */
-    
+    UIImageView *posterImageView = (UIImageView *)[cell viewWithTag:101];
+    UILabel *titleLabel = (UILabel *)[cell viewWithTag:102];
+    titleLabel.text = movie.title;
+    UILabel *yearLabel = (UILabel *)[cell viewWithTag:103];
+    yearLabel.text = movie.year;
+    UILabel *ratingLabel = (UILabel *)[cell viewWithTag:104];
+    ratingLabel.text = @"Rating: ";
+    ratingLabel.text = [ratingLabel.text stringByAppendingString:movie.rating];
+    UILabel *shortSynLabel = (UILabel *)[cell viewWithTag:105];
+    shortSynLabel.numberOfLines = 0;
+    shortSynLabel.text = movie.shortSynopsis;
+     */
+
+
     
     return cell;
+}
+
+
+- (UIImage *)imageForRating:(int)rating
+{
+    switch (rating) {
+        case 1: return [UIImage imageNamed:@"posterArrival"];
+        case 2: return [UIImage imageNamed:@"2StarsSmall"];
+        case 3: return [UIImage imageNamed:@"3StarsSmall"];
+        case 4: return [UIImage imageNamed:@"4StarsSmall"];
+        case 5: return [UIImage imageNamed:@"5StarsSmall"];
+    }
+    return nil;
 }
 
 /*
