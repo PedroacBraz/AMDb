@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0EC0428AB0171B934F8A34C6 /* Pods_AMDbUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E9A1C21931CAAF33E4C279D /* Pods_AMDbUITests.framework */; };
+		6C66DAE64D7EE3218275C526 /* Pods_AMDb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7411A4A2F0D10F342DDE59B /* Pods_AMDb.framework */; };
 		865E17EBC8CDD1BBD884ED92 /* Pods_AMDbTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BBA11B3D9E67DE9EBA4AFA /* Pods_AMDbTests.framework */; };
+		F4137E121E1535F30014D5E6 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4137E111E1535F30014D5E6 /* SearchViewController.m */; };
 		F434C4F31E0AB43D00445A7F /* MoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F434C4F21E0AB43D00445A7F /* MoviesViewController.m */; };
 		F434C4F61E0AC06300445A7F /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = F434C4F51E0AC06300445A7F /* Movie.m */; };
 		F4947CA41E0997C00078D984 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F4947CA31E0997C00078D984 /* main.m */; };
@@ -64,6 +66,8 @@
 		D8B75A360B2F8AE71E0BFB67 /* Pods-AMDbTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AMDbTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AMDbTests/Pods-AMDbTests.release.xcconfig"; sourceTree = "<group>"; };
 		D8BBA11B3D9E67DE9EBA4AFA /* Pods_AMDbTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AMDbTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7411A4A2F0D10F342DDE59B /* Pods_AMDb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AMDb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4137E101E1535F30014D5E6 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		F4137E111E1535F30014D5E6 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		F434C4F11E0AB43D00445A7F /* MoviesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviesViewController.h; sourceTree = "<group>"; };
 		F434C4F21E0AB43D00445A7F /* MoviesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviesViewController.m; sourceTree = "<group>"; };
 		F434C4F41E0AC06300445A7F /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
@@ -95,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C66DAE64D7EE3218275C526 /* Pods_AMDb.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +245,8 @@
 				F4947CA91E0997C00078D984 /* ViewController.m */,
 				F434C4F11E0AB43D00445A7F /* MoviesViewController.h */,
 				F434C4F21E0AB43D00445A7F /* MoviesViewController.m */,
+				F4137E101E1535F30014D5E6 /* SearchViewController.h */,
+				F4137E111E1535F30014D5E6 /* SearchViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -533,6 +540,7 @@
 				F434C4F61E0AC06300445A7F /* Movie.m in Sources */,
 				F4947CA41E0997C00078D984 /* main.m in Sources */,
 				F434C4F31E0AB43D00445A7F /* MoviesViewController.m in Sources */,
+				F4137E121E1535F30014D5E6 /* SearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

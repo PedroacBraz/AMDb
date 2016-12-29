@@ -20,10 +20,7 @@
 {
     NSMutableArray *_movies;
     
-    
 }
-
-
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -39,8 +36,7 @@
         NSLog(@"JSON: %@", responseObject);
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
-    }];    
-    
+    }];
     
     [realm beginWriteTransaction];
     
@@ -58,43 +54,13 @@
     movie.title = @"Rogue One";
     movie.year = @"2016";
     movie.rating = @"10.0";
-    movie.shortSynopsis = @"I'm one with the Force. The Force is with me. I'm one with the Force. The Force is with me.I'm one with the Force. The Force is with me.I'm one with the Force. The Force is with me.I'm one with the Force. The Force is with me.I'm one with the Force. The Force is with me.I'm one with the Force. The Force is with me.";
-    movie.fullSynopsis = @"I'm one with the Force. The Force is with me. I'm one with the Force. The Force is with me.I'm one with the Force. The Force is with me.I'm one with the Force. The Force is with me.I'm one with the Force. The Force is with me.I'm one with the Force. The Force is with me.I'm one with the Force. The Force is with me. Gotta watch the other ones";
+    movie.shortSynopsis = @"I'm one with the Force. The Force is with me. I'm one with the Force. The Force is with me.I'm one with the Force. The Force is with me.I'm one with the Force. The Force is with me. I'm one with the Force. The Force is with me. I'm one with the Force. The Force is with me. I'm one with the Force. The Force is with me.";
+    movie.fullSynopsis = @"I'm one with the Force. The Force is with me. I'm one with the Force. The Force is with me. I'm one with the Force. The Force is with me. I'm one with the Force. The Force is with me. I'm one with the Force. The Force is with me. I'm one with the Force. The Force is with me. I'm one with the Force. The Force is with me. Gotta watch the other ones";
     [_movies addObject:movie];
     
-    movie = [[Movie alloc] init];
-    movie.title = @"St. Cloverfield";
-    movie.year = @"2016";
-    movie.rating = @"1.0";
-    movie.shortSynopsis = @"ETs killing some people";
-    movie.fullSynopsis = @"ETs killing some people. Started nice.";
-    [_movies addObject:movie];
     
-    movie = [[Movie alloc] init];
-    movie.title = @"Civil War";
-    movie.year = @"2016";
-    movie.rating = @"8.0";
-    movie.shortSynopsis = @"Avengers fight";
-    movie.fullSynopsis = @"Avengers fight. Spider-man appears";
-    [_movies addObject:movie];
-    
-    movie = [[Movie alloc] init];
-    movie.title = @"Arrival5";
-    movie.year = @"2016";
-    movie.rating = @"9.9";
-    movie.shortSynopsis = @"ETs talking to some people12345";
-    movie.fullSynopsis = @"ETs talking to some people12345. And it's really awesome. Feels like Inception";
-    [_movies addObject:movie];
-    
-    movie = [[Movie alloc] init];
-    movie.title = @"Arrival6";
-    movie.year = @"2016";
-    movie.rating = @"7.9";
-    movie.shortSynopsis = @"ETs talking to some people12345678";
-    movie.fullSynopsis = @"ETs talking to some people12345678. And it's really awesome. Feels like Inception";
-    [_movies addObject:movie];
 
-    //Gets the Navigatin controller on the root
+    //Gets the Navigation controller on the root
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     //Gets the moviesViewController in the first index of the navigator controller
     MoviesViewController *moviesViewController = [navigationController viewControllers][0];
