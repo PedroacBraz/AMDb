@@ -27,16 +27,7 @@
     _movies = [NSMutableArray arrayWithCapacity:20];
     RLMRealm *realm = [RLMRealm defaultRealm];
     
-    // Testing AFNetworking
-    NSURL *URL = [NSURL URLWithString:@"http://www.omdbapi.com/?t=Rogue+One&y=&plot=short&r=json"];
-    //Manager for using http requests
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
-    [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
-    } failure:^(NSURLSessionTask *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
+   
     
     [realm beginWriteTransaction];
     

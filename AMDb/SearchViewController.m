@@ -7,8 +7,7 @@
 //
 
 #import "SearchViewController.h"
-#import "Movie.h"
-#import "MovieCell.h"
+
 
 @interface SearchViewController ()
 
@@ -18,12 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.searchBar.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -61,6 +55,40 @@
     
     return cell;
 }
+
+- (NSString *) createURLforSearch: (NSString *) movieTitle{
+    
+    //NSURL *URL = [NSURL URLWithString:@"http://www.omdbapi.com/?t=Rogue+One&y=&plot=short&r=json"];
+
+    
+    NSString *URLForSearch = @"http://www.omdbapi.com/?t=";
+    URLForSearch = [URLForSearch stringByAppendingString:movieTitle];
+    URLForSearch = [URLForSearch stringByAppendingString:@"&y=&plot=short&r=json"];
+    
+    URLForSearch= [URLForSearch stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+    
+    NSLog(@"%@", URLForSearch);
+    return URLForSearch;
+    
+}
+
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    
+    NSString* myURLString = [self createURLforSearch:(searchBar.text)];
+    NSURL *URL = [NSURL URLWithString:myURLString];
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+    
+}
+
+
 
 /*
 // Override to support conditional editing of the table view.

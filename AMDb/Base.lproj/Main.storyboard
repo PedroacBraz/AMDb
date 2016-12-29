@@ -178,6 +178,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Movies Search" id="j1t-ES-jPb"/>
                     <connections>
+                        <outlet property="searchBar" destination="FAO-6r-MaP" id="aG2-HI-L1B"/>
                         <outlet property="searchDisplayController" destination="jPO-x5-Jgw" id="Roh-Q3-N71"/>
                     </connections>
                 </tableViewController>

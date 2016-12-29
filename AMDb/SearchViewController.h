@@ -7,9 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Movie.h"
+#import "MovieCell.h"
+#import <AFNetworking/AFNetworking.h>
 
-@interface SearchViewController : UITableViewController
+@interface SearchViewController : UITableViewController <UISearchBarDelegate>
 
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, strong) NSMutableArray *searchedMovies;
+
+- (NSString *) createURLforSearch: (NSString *) movieTitle;
 
 @end
