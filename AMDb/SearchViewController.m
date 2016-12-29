@@ -7,6 +7,7 @@
 //
 
 #import "SearchViewController.h"
+#import "MTLSearchMovie.h"
 
 
 @interface SearchViewController ()
@@ -58,10 +59,13 @@
 
 - (NSString *) createURLforSearch: (NSString *) movieTitle{
     
-    //NSURL *URL = [NSURL URLWithString:@"http://www.omdbapi.com/?t=Rogue+One&y=&plot=short&r=json"];
-
     
-    NSString *URLForSearch = @"http://www.omdbapi.com/?t=";
+    //To return one result in the search, use:
+    //NSString *URLForSearch = @"http://www.omdbapi.com/?t=";
+    
+    //To return one or more result in the search,use:
+    NSString *URLForSearch = @"http://www.omdbapi.com/?s=";
+    
     URLForSearch = [URLForSearch stringByAppendingString:movieTitle];
     URLForSearch = [URLForSearch stringByAppendingString:@"&y=&plot=short&r=json"];
     
@@ -75,20 +79,21 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     
-    NSString* myURLString = [self createURLforSearch:(searchBar.text)];
+    NSString *myURLString = [self createURLforSearch:(searchBar.text)];
     NSURL *URL = [NSURL URLWithString:myURLString];
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
     [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
+        self.searchedMovies = [MTLJSONAdapter modelOfClass:[MTLSearchMovie class] fromJSONDictionary:responseObject error:NULL];
+        
+
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
     
 }
-
-
 
 /*
 // Override to support conditional editing of the table view.
