@@ -47,9 +47,9 @@
     movie.rating = @"10.0";
     movie.shortSynopsis = @"I'm one with the Force. The Force is with me. I'm one with the Force. The Force is with me.I'm one with the Force. The Force is with me.I'm one with the Force. The Force is with me. I'm one with the Force. The Force is with me. I'm one with the Force. The Force is with me. I'm one with the Force. The Force is with me.";
     movie.fullSynopsis = @"I'm one with the Force. The Force is with me. I'm one with the Force. The Force is with me. I'm one with the Force. The Force is with me. I'm one with the Force. The Force is with me. I'm one with the Force. The Force is with me. I'm one with the Force. The Force is with me. I'm one with the Force. The Force is with me. Gotta watch the other ones";
+    
+    
     [_movies addObject:movie];
-    
-    
 
     //Gets the Navigation controller on the root
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
@@ -57,6 +57,7 @@
     MoviesViewController *moviesViewController = [navigationController viewControllers][0];
     
     moviesViewController.movies = _movies;
+    
     [realm commitWriteTransaction];
     
     return YES;

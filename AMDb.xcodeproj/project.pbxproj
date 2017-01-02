@@ -22,6 +22,7 @@
 		F4947CBD1E0997C00078D984 /* AMDbTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F4947CBC1E0997C00078D984 /* AMDbTests.m */; };
 		F4947CC81E0997C00078D984 /* AMDbUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F4947CC71E0997C00078D984 /* AMDbUITests.m */; };
 		F49688B11E15606E000348C7 /* MTLSearchMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = F49688B01E15606E000348C7 /* MTLSearchMovie.m */; };
+		F49688B41E158CDB000348C7 /* MovieSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F49688B31E158CDB000348C7 /* MovieSearchCell.m */; };
 		F4F4ECA11E0D440200135948 /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F4ECA01E0D440200135948 /* MovieCell.m */; };
 		F4F4ECA81E0D537A00135948 /* posterArrival.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4F4ECA71E0D537A00135948 /* posterArrival.jpg */; };
 		F4F4ECAA1E0D57F900135948 /* posterRogueOne.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4F4ECA91E0D57F900135948 /* posterRogueOne.jpg */; };
@@ -91,6 +92,8 @@
 		F4947CC91E0997C00078D984 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F49688AF1E15606E000348C7 /* MTLSearchMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTLSearchMovie.h; sourceTree = "<group>"; };
 		F49688B01E15606E000348C7 /* MTLSearchMovie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTLSearchMovie.m; sourceTree = "<group>"; };
+		F49688B21E158CDB000348C7 /* MovieSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieSearchCell.h; sourceTree = "<group>"; };
+		F49688B31E158CDB000348C7 /* MovieSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieSearchCell.m; sourceTree = "<group>"; };
 		F4F4EC9F1E0D440200135948 /* MovieCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieCell.h; sourceTree = "<group>"; };
 		F4F4ECA01E0D440200135948 /* MovieCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieCell.m; sourceTree = "<group>"; };
 		F4F4ECA71E0D537A00135948 /* posterArrival.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = posterArrival.jpg; sourceTree = "<group>"; };
@@ -179,6 +182,8 @@
 				F4F4ECA01E0D440200135948 /* MovieCell.m */,
 				F49688AF1E15606E000348C7 /* MTLSearchMovie.h */,
 				F49688B01E15606E000348C7 /* MTLSearchMovie.m */,
+				F49688B21E158CDB000348C7 /* MovieSearchCell.h */,
+				F49688B31E158CDB000348C7 /* MovieSearchCell.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -540,6 +545,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4947CAA1E0997C00078D984 /* ViewController.m in Sources */,
+				F49688B41E158CDB000348C7 /* MovieSearchCell.m in Sources */,
 				F4947CA71E0997C00078D984 /* AppDelegate.m in Sources */,
 				F4F4ECA11E0D440200135948 /* MovieCell.m in Sources */,
 				F434C4F61E0AC06300445A7F /* Movie.m in Sources */,

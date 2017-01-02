@@ -8,6 +8,8 @@
 
 #import "SearchViewController.h"
 #import "MTLSearchMovie.h"
+#import "MovieSearchCell.h"
+#import "Movie.h"
 
 
 @interface SearchViewController ()
@@ -15,10 +17,16 @@
 @end
 
 @implementation SearchViewController
+{
+    NSMutableArray *_movies;
+    
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.searchBar.delegate = self;
+    _movies = [NSMutableArray arrayWithCapacity:10];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,20 +48,18 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MovieCell *cell = (MovieCell *) [tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
+  
+    MovieSearchCell *cell = (MovieSearchCell *) [tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
     
     // Configure what the cell must display
     
-    Movie *movie = (self.searchedMovies)[indexPath.row];
+    Movie *movieForCell = (self.movies)[indexPath.row];
     
-    cell.posterImageView.image = movie.moviePoster;
-    cell.titleLabel.text = movie.title;
-    cell.yearLabel.text = movie.year;
-    cell.ratingLabel.text = @"Rating: ";
-    cell.ratingLabel.text = [cell.ratingLabel.text stringByAppendingString:movie.rating];
-    cell.shortSynLabel.text = movie.shortSynopsis;
+    //cell.posterImageView.image = movieForCell.moviePoster;
+    cell.titleLabel.text = movieForCell.title;
+    cell.yearLabel.text = movieForCell.year;
     
-    
+    NSLog(@"Calling cellForRow!");
     return cell;
 }
 
@@ -81,14 +87,44 @@
     
     NSString *myURLString = [self createURLforSearch:(searchBar.text)];
     NSURL *URL = [NSURL URLWithString:myURLString];
+    Movie *movie = [[Movie alloc] init];
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
     [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
-        self.searchedMovies = [MTLJSONAdapter modelOfClass:[MTLSearchMovie class] fromJSONDictionary:responseObject error:NULL];
+        // responseObject is _NSDictionary
         
-
+        MTLSearchMovies *searchMovies = [MTLJSONAdapter modelOfClass:[MTLSearchMovies class] fromJSONDictionary:responseObject error:NULL];
+        
+        self.searchedMovies = [[NSMutableArray alloc] initWithObjects:searchMovies, nil];
+        
+        
+        // Here, searched movies has the response, searchResults and searchResultsQty
+        // seachResults is a NSArray with the movies data in each position, now, to use each position to create a movie and add it on movies array
+        
+        for (NSDictionary *auxMovie in searchMovies.searchResults){
+            
+            if (auxMovie != nil){
+        
+                //movie = [[Movie alloc] init];
+                movie.moviePoster = [auxMovie objectForKey:@"Poster"];
+                movie.title = [auxMovie objectForKey:@"Title"];
+                movie.year = [auxMovie objectForKey:@"Year"];
+                
+                
+                [_movies addObject:movie];
+                
+            }else{
+                break;
+            }
+        
+        }
+        self.movies = _movies;
+        
+        [self.tableView reloadData];
+        
+        
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];

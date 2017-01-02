@@ -9,6 +9,13 @@
 #import <Mantle/Mantle.h>
 #import <UIKit/UIKit.h>
 
+@interface MTLSearchMovies : MTLModel <MTLJSONSerializing>
+
+@property (nonatomic, copy) NSString *response;
+@property (nonatomic, copy) NSArray *searchResults;
+@property (nonatomic, copy) NSString *searchResultsQty;
+@end
+
 @interface MTLSearchMovie : MTLModel <MTLJSONSerializing>
 
 @property (nonatomic, copy) NSString *posterURL;
