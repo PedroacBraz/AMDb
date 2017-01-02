@@ -37,13 +37,13 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
+    
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    return [self.searchedMovies count];
+    
+    return [self.movies count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -87,8 +87,7 @@
     
     NSString *myURLString = [self createURLforSearch:(searchBar.text)];
     NSURL *URL = [NSURL URLWithString:myURLString];
-    Movie *movie = [[Movie alloc] init];
-    
+       [_movies removeAllObjects];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
     [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
@@ -98,32 +97,18 @@
         MTLSearchMovies *searchMovies = [MTLJSONAdapter modelOfClass:[MTLSearchMovies class] fromJSONDictionary:responseObject error:NULL];
         
         self.searchedMovies = [[NSMutableArray alloc] initWithObjects:searchMovies, nil];
-        
-        
         // Here, searched movies has the response, searchResults and searchResultsQty
         // seachResults is a NSArray with the movies data in each position, now, to use each position to create a movie and add it on movies array
-        
         for (NSDictionary *auxMovie in searchMovies.searchResults){
             
             if (auxMovie != nil){
         
-                //movie = [[Movie alloc] init];
-                movie.moviePoster = [auxMovie objectForKey:@"Poster"];
-                movie.title = [auxMovie objectForKey:@"Title"];
-                movie.year = [auxMovie objectForKey:@"Year"];
+                [self.movies addObject:[[Movie alloc] initWithDictionary: auxMovie]];
                 
-                
-                [_movies addObject:movie];
-                
-            }else{
-                break;
             }
-        
         }
-        self.movies = _movies;
-        
+
         [self.tableView reloadData];
-        
         
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);

@@ -10,5 +10,20 @@
 
 @implementation Movie
 
+- (Movie *) initWithDictionary:(NSDictionary *)movieDictionary{
+
+    Movie * movie = [[Movie alloc] init];
+    
+    if (!movie){
+        return nil;
+    }
+    
+    movie.moviePoster = [movieDictionary objectForKey:@"Poster"];
+    movie.title = [movieDictionary objectForKey:@"Title"];
+    movie.year = [movieDictionary objectForKey:@"Year"];
+    
+    return movie;
+    
+}
 
 @end

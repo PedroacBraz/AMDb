@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 #import <Realm/Realm.h>
 
+
 @interface Movie : NSObject
 
 // Movie's attributes
@@ -20,5 +21,7 @@
 @property (nonatomic, copy) NSString *shortSynopsis;
 @property (nonatomic, copy) NSString *fullSynopsis;
 @property (nonatomic, copy) UIImage *moviePoster;
+
+- (Movie *) initWithDictionary:(NSDictionary *)movieDictionary;
 
 @end
