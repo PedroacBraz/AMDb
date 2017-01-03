@@ -18,12 +18,20 @@
         return nil;
     }
     
-    movie.moviePoster = [movieDictionary objectForKey:@"Poster"];
+    movie.moviePosterURL = [movieDictionary objectForKey:@"Poster"];
     movie.title = [movieDictionary objectForKey:@"Title"];
     movie.year = [movieDictionary objectForKey:@"Year"];
     
     return movie;
     
 }
+
+- (void) getPosterWithURL: (NSURL *) moviePosterURL{
+
+  
+
+
+}
+
 
 @end

@@ -11,6 +11,7 @@
 #import "MovieCell.h"
 #import <AFNetworking/AFNetworking.h>
 #import "MTLSearchMovie.h"
+#import <AFNetworking/AFImageDownloader.h>
 
 
 @interface SearchViewController : UITableViewController <UISearchBarDelegate>
@@ -18,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, strong) NSMutableArray *searchedMovies;
 @property (nonatomic, strong) NSMutableArray *movies;
+
+- (IBAction)touchedMoviePosterButton:(id)sender;
 
 
 - (NSString *) createURLforSearch: (NSString *) movieTitle;

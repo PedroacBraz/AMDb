@@ -10,7 +10,7 @@
 #import "MTLSearchMovie.h"
 #import "MovieSearchCell.h"
 #import "Movie.h"
-
+#import "UIImageView+AFNetworking.h"
 
 @interface SearchViewController ()
 
@@ -58,9 +58,13 @@
     //cell.posterImageView.image = movieForCell.moviePoster;
     cell.titleLabel.text = movieForCell.title;
     cell.yearLabel.text = movieForCell.year;
+    [cell.posterImageView setImageWithURL:[NSURL URLWithString:movieForCell.moviePosterURL]];
     
     NSLog(@"Calling cellForRow!");
     return cell;
+}
+
+- (IBAction)touchedMoviePosterButton:(id)sender {
 }
 
 - (NSString *) createURLforSearch: (NSString *) movieTitle{
@@ -81,7 +85,6 @@
     return URLForSearch;
     
 }
-
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     

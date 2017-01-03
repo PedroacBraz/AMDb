@@ -13,6 +13,7 @@
 		F4137E121E1535F30014D5E6 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4137E111E1535F30014D5E6 /* SearchViewController.m */; };
 		F434C4F31E0AB43D00445A7F /* MoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F434C4F21E0AB43D00445A7F /* MoviesViewController.m */; };
 		F434C4F61E0AC06300445A7F /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = F434C4F51E0AC06300445A7F /* Movie.m */; };
+		F465C0391E1BF0FC005D6297 /* FullMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F465C0381E1BF0FC005D6297 /* FullMovieViewController.m */; };
 		F4947CA41E0997C00078D984 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F4947CA31E0997C00078D984 /* main.m */; };
 		F4947CA71E0997C00078D984 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F4947CA61E0997C00078D984 /* AppDelegate.m */; };
 		F4947CAA1E0997C00078D984 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4947CA91E0997C00078D984 /* ViewController.m */; };
@@ -74,6 +75,8 @@
 		F434C4F21E0AB43D00445A7F /* MoviesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviesViewController.m; sourceTree = "<group>"; };
 		F434C4F41E0AC06300445A7F /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
 		F434C4F51E0AC06300445A7F /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
+		F465C0371E1BF0FC005D6297 /* FullMovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullMovieViewController.h; sourceTree = "<group>"; };
+		F465C0381E1BF0FC005D6297 /* FullMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullMovieViewController.m; sourceTree = "<group>"; };
 		F4947C9F1E0997C00078D984 /* AMDb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AMDb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4947CA31E0997C00078D984 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F4947CA51E0997C00078D984 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -253,6 +256,8 @@
 			children = (
 				F4947CA81E0997C00078D984 /* ViewController.h */,
 				F4947CA91E0997C00078D984 /* ViewController.m */,
+				F465C0371E1BF0FC005D6297 /* FullMovieViewController.h */,
+				F465C0381E1BF0FC005D6297 /* FullMovieViewController.m */,
 				F434C4F11E0AB43D00445A7F /* MoviesViewController.h */,
 				F434C4F21E0AB43D00445A7F /* MoviesViewController.m */,
 				F4137E101E1535F30014D5E6 /* SearchViewController.h */,
@@ -544,6 +549,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F465C0391E1BF0FC005D6297 /* FullMovieViewController.m in Sources */,
 				F4947CAA1E0997C00078D984 /* ViewController.m in Sources */,
 				F49688B41E158CDB000348C7 /* MovieSearchCell.m in Sources */,
 				F4947CA71E0997C00078D984 /* AppDelegate.m in Sources */,

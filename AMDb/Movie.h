@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <Realm/Realm.h>
+#import <AFNetworking/AFNetworking.h>
 
 
 @interface Movie : NSObject
@@ -20,8 +21,10 @@
 @property (nonatomic, copy) NSString *rating;
 @property (nonatomic, copy) NSString *shortSynopsis;
 @property (nonatomic, copy) NSString *fullSynopsis;
+@property (nonatomic, copy) NSString *moviePosterURL;
 @property (nonatomic, copy) UIImage *moviePoster;
 
 - (Movie *) initWithDictionary:(NSDictionary *)movieDictionary;
+- (void) getPosterWithURL: (NSURL *) moviePosterURL;
 
 @end
