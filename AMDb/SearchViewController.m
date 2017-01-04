@@ -11,6 +11,7 @@
 #import "MovieSearchCell.h"
 #import "Movie.h"
 #import "UIImageView+AFNetworking.h"
+#import "FullMovieViewController.h"
 
 @interface SearchViewController ()
 
@@ -19,7 +20,6 @@
 @implementation SearchViewController
 {
     NSMutableArray *_movies;
-    
     
 }
 
@@ -69,7 +69,6 @@
 
 - (NSString *) createURLforSearch: (NSString *) movieTitle{
     
-    
     //To return one result in the search, use:
     //NSString *URLForSearch = @"http://www.omdbapi.com/?t=";
     
@@ -88,6 +87,8 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     
+    
+    // When searching with pages, for each result in the page, the API will provide ONLY information about the movie's Title, Year, Type, imdbID and poster's URL
     NSString *myURLString = [self createURLforSearch:(searchBar.text)];
     NSURL *URL = [NSURL URLWithString:myURLString];
        [_movies removeAllObjects];
@@ -119,48 +120,19 @@
     
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"showMovieDetail"]) {
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        // Index path is nil if invalid
+        FullMovieViewController *destViewController = segue.destinationViewController;
+        // The destViewController is the FullMovieViewController
+        destViewController.movie = [_movies objectAtIndex:indexPath.row];
+        
+    }
 }
-*/
+
+
 
 @end

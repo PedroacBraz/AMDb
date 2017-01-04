@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Movie.h"
 
 @interface FullMovieViewController : UIViewController
+
+@property (nonatomic, strong) Movie * movie;
+@property (nonatomic, strong) NSString * moviePosterURL;
+@property (weak, nonatomic) IBOutlet UILabel *movieTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *movieYearLabel;
+@property (weak, nonatomic) IBOutlet UILabel *movieRatingLabel;
+@property (weak, nonatomic) IBOutlet UITextView *movieSynopsisTextView;
+@property (weak, nonatomic) IBOutlet UIImageView *moviePosterImageView;
+
 
 @end

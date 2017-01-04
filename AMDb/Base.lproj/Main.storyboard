@@ -32,7 +32,7 @@
                                                 <segue destination="7Wc-xZ-Khd" kind="show" id="3pw-Jg-Lqu"/>
                                             </connections>
                                         </button>
-                                        <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" tag="101" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="posterArrival.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="I9q-Ii-Bky">
+                                        <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" tag="101" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I9q-Ii-Bky">
                                             <rect key="frame" x="-1" y="-4" width="373" height="173"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
@@ -87,7 +87,7 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="My Movies" id="mBF-cD-4cE">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="TDN-pE-Rnu">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="TDN-pE-Rnu">
                             <connections>
                                 <segue destination="r2o-Eg-D2X" kind="show" id="U3F-8U-Fsn"/>
                             </connections>
@@ -125,7 +125,7 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <connections>
                                                 <action selector="touchedMoviePosterButton:" destination="r2o-Eg-D2X" eventType="touchUpInside" id="lTi-1k-e4O"/>
-                                                <segue destination="7Wc-xZ-Khd" kind="show" id="thr-ma-b3F"/>
+                                                <segue destination="7Wc-xZ-Khd" kind="show" identifier="showMovieDetail" id="thr-ma-b3F"/>
                                             </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" tag="101" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e9I-qh-yBh">
@@ -184,7 +184,7 @@
         <!--Movie Information-->
         <scene sceneID="tNg-6t-1U6">
             <objects>
-                <viewController title="Movie Information" id="7Wc-xZ-Khd" sceneMemberID="viewController">
+                <viewController title="Movie Information" id="7Wc-xZ-Khd" customClass="FullMovieViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="47K-hK-Lg6"/>
                         <viewControllerLayoutGuide type="bottom" id="cjn-I3-SYD"/>
@@ -197,45 +197,53 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </navigationBar>
-                            <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="posterRogueOne.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="kCX-ck-OyZ">
+                            <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kCX-ck-OyZ">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Movie Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggv-Qp-Ejx">
-                                <rect key="frame" x="16" y="304" width="139" height="21"/>
+                                <rect key="frame" x="16" y="86" width="343" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdE-aO-3CY">
-                                <rect key="frame" x="16" y="333" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Full Synopsis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2h-DG-EdV">
-                                <rect key="frame" x="16" y="373" width="343" height="274"/>
+                                <rect key="frame" x="16" y="131" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="IMDb Rating:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vel-Zy-Kp0">
-                                <rect key="frame" x="179" y="333" width="115" height="21"/>
+                                <rect key="frame" x="209" y="131" width="150" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="3Zv-yg-Ze5">
+                                <rect key="frame" x="16" y="191" width="343" height="424"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="0.030955693493150686" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="moviePosterImageView" destination="kCX-ck-OyZ" id="qS8-9c-0jT"/>
+                        <outlet property="movieRatingLabel" destination="vel-Zy-Kp0" id="yad-ED-91G"/>
+                        <outlet property="movieSynopsisTextView" destination="3Zv-yg-Ze5" id="iE7-yY-eaL"/>
+                        <outlet property="movieTitleLabel" destination="ggv-Qp-Ejx" id="B9r-SP-K62"/>
+                        <outlet property="movieYearLabel" destination="wdE-aO-3CY" id="kgb-mo-VwB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qg4-YP-fOK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5682" y="131"/>
+            <point key="canvasLocation" x="5680.8000000000002" y="130.88455772113943"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gcn-Y8-3IW">
@@ -256,10 +264,6 @@
             <point key="canvasLocation" x="4678" y="-632"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="posterArrival.jpg" width="400" height="625"/>
-        <image name="posterRogueOne.jpg" width="480" height="711"/>
-    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="thr-ma-b3F"/>
     </inferredMetricsTieBreakers>
