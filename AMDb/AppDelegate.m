@@ -24,7 +24,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
+    /*
     _movies = [NSMutableArray arrayWithCapacity:20];
     RLMRealm *realm = [RLMRealm defaultRealm];
     
@@ -60,8 +60,9 @@
     moviesViewController.movies = _movies;
     
     [realm commitWriteTransaction];
-    
+    */
     return YES;
+     
 }
 
 

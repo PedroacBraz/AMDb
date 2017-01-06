@@ -21,15 +21,17 @@
     movie.moviePosterURL = [movieDictionary objectForKey:@"Poster"];
     movie.title = [movieDictionary objectForKey:@"Title"];
     movie.year = [movieDictionary objectForKey:@"Year"];
+    movie.actors = [movieDictionary objectForKey:@"Actors"];
+    movie.director = [movieDictionary objectForKey:@"Director"];
+    movie.genre = [movieDictionary objectForKey:@"Genre"];
+    movie.rated = [movieDictionary objectForKey:@"Rated"];
+    movie.runtime = [movieDictionary objectForKey:@"Runtime"];
     
     return movie;
     
 }
 
 - (void) getPosterWithURL: (NSURL *) moviePosterURL{
-
-  
-
 
 }
 

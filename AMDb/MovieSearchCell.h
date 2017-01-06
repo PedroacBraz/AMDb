@@ -13,5 +13,6 @@
 @property (nonatomic, weak) IBOutlet UIImageView *posterImageView;
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *yearLabel;
+@property (weak, nonatomic) IBOutlet UIButton *movieCellButton;
 
 @end

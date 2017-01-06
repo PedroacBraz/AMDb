@@ -20,6 +20,7 @@
 @property (nonatomic, strong) NSMutableArray *searchedMovies;
 @property (nonatomic, strong) NSMutableArray *movies;
 
+
 - (IBAction)touchedMoviePosterButton:(id)sender;
 
 

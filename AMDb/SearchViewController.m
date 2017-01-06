@@ -50,7 +50,6 @@
 {
   
     MovieSearchCell *cell = (MovieSearchCell *) [tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
-    
     // Configure what the cell must display
     
     Movie *movieForCell = (self.movies)[indexPath.row];
@@ -60,9 +59,12 @@
     cell.yearLabel.text = movieForCell.year;
     [cell.posterImageView setImageWithURL:[NSURL URLWithString:movieForCell.moviePosterURL]];
     
+    //[cell.movieCellButton addTarget:self action:@selector(btnCommentClick:) forControlEvents:UIControlEventTouchUpInside];
+    cell.movieCellButton.tag = indexPath.row;
     NSLog(@"Calling cellForRow!");
     return cell;
 }
+
 
 - (IBAction)touchedMoviePosterButton:(id)sender {
 }
@@ -77,7 +79,6 @@
     
     URLForSearch = [URLForSearch stringByAppendingString:movieTitle];
     URLForSearch = [URLForSearch stringByAppendingString:@"&y=&plot=short&r=json"];
-    
     URLForSearch= [URLForSearch stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     
     NSLog(@"%@", URLForSearch);
@@ -120,11 +121,15 @@
     
 }
 
+#pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showMovieDetail"]) {
         
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        UIButton *senderButton = (UIButton *)sender;
+        NSLog(@"current Row=%ld",(long)senderButton.tag);
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:senderButton.tag inSection:0];
+        //NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         // Index path is nil if invalid
         FullMovieViewController *destViewController = segue.destinationViewController;
         // The destViewController is the FullMovieViewController

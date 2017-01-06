@@ -22,6 +22,11 @@
 @property (nonatomic, copy) NSString *shortSynopsis;
 @property (nonatomic, copy) NSString *fullSynopsis;
 @property (nonatomic, copy) NSString *moviePosterURL;
+@property (nonatomic, copy) NSString *actors;
+@property (nonatomic, copy) NSString *director;
+@property (nonatomic, copy) NSString *genre;
+@property (nonatomic, copy) NSString *rated;
+@property (nonatomic, copy) NSString *runtime;
 @property (nonatomic, copy) UIImage *moviePoster;
 
 - (Movie *) initWithDictionary:(NSDictionary *)movieDictionary;

@@ -18,6 +18,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *movieRatingLabel;
 @property (weak, nonatomic) IBOutlet UITextView *movieSynopsisTextView;
 @property (weak, nonatomic) IBOutlet UIImageView *moviePosterImageView;
+@property (weak, nonatomic) IBOutlet UILabel *movieGenreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *movieActorsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *movieDirectorLabel;
+@property (weak, nonatomic) IBOutlet UILabel *movieRatedLabel;
+@property (weak, nonatomic) IBOutlet UILabel *movieRuntimeLabel;
 
 
 @end

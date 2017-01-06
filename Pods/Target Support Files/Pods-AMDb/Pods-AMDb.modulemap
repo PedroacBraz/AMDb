@@ -1,0 +1,6 @@
+framework module Pods_AMDb {
+  umbrella header "Pods-AMDb-umbrella.h"
+
+  export *
+  module * { export * }
+}
