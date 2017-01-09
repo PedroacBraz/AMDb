@@ -53,13 +53,9 @@
     // Configure what the cell must display
     
     Movie *movieForCell = (self.movies)[indexPath.row];
-    
-    //cell.posterImageView.image = movieForCell.moviePoster;
     cell.titleLabel.text = movieForCell.title;
     cell.yearLabel.text = movieForCell.year;
     [cell.posterImageView setImageWithURL:[NSURL URLWithString:movieForCell.moviePosterURL]];
-    
-    //[cell.movieCellButton addTarget:self action:@selector(btnCommentClick:) forControlEvents:UIControlEventTouchUpInside];
     cell.movieCellButton.tag = indexPath.row;
     NSLog(@"Calling cellForRow!");
     return cell;
@@ -109,7 +105,6 @@
             if (auxMovie != nil){
         
                 [self.movies addObject:[[Movie alloc] initWithDictionary: auxMovie]];
-                
             }
         }
 
@@ -127,7 +122,6 @@
     if ([segue.identifier isEqualToString:@"showMovieDetail"]) {
         
         UIButton *senderButton = (UIButton *)sender;
-        NSLog(@"current Row=%ld",(long)senderButton.tag);
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:senderButton.tag inSection:0];
         //NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         // Index path is nil if invalid

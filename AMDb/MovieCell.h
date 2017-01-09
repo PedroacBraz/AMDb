@@ -15,6 +15,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *yearLabel;
 @property (nonatomic, weak) IBOutlet UILabel *ratingLabel;
 @property (nonatomic, weak) IBOutlet UILabel *shortSynLabel;
+@property (weak, nonatomic) IBOutlet UILabel *noMoviesLabel;
 
 
 @end

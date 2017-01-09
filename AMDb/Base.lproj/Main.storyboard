@@ -29,7 +29,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" alpha="0.14999999999999999" tag="101" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I9q-Ii-Bky">
-                                            <rect key="frame" x="-1" y="-4" width="415" height="173"/>
+                                            <rect key="frame" x="-2" y="-5" width="416" height="172"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8B-SC-6Jy">
@@ -71,6 +71,13 @@
                                                 <segue destination="7Wc-xZ-Khd" kind="show" id="uS7-ix-Va1"/>
                                             </connections>
                                         </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap the Search Button to search and add movies" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5oO-50-THw">
+                                            <rect key="frame" x="17" y="65" width="378" height="59"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="tpU-ku-o1a" firstAttribute="top" secondItem="OHe-2J-38M" secondAttribute="bottom" constant="1" id="2j4-Wl-5lt"/>
@@ -92,6 +99,7 @@
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                 </accessibility>
                                 <connections>
+                                    <outlet property="noMoviesLabel" destination="5oO-50-THw" id="WjJ-aR-uUN"/>
                                     <outlet property="posterImageView" destination="I9q-Ii-Bky" id="Tuw-EK-doP"/>
                                     <outlet property="ratingLabel" destination="l8B-SC-6Jy" id="ftm-EO-Lsi"/>
                                     <outlet property="shortSynLabel" destination="38T-Gm-C8c" id="biM-Yj-YBD"/>
@@ -117,7 +125,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xdx-hz-KNn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3700" y="130"/>
+            <point key="canvasLocation" x="3700.0000000000005" y="129.61956521739131"/>
         </scene>
         <!--SearchResults-->
         <scene sceneID="MTV-3X-LHf">
@@ -276,6 +284,9 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Add to Favorites"/>
+                                <connections>
+                                    <action selector="favoriteMovieButtonTouched:" destination="7Wc-xZ-Khd" eventType="touchUpInside" id="yJC-8r-AHl"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Actors: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQi-Q8-KAf">
                                 <rect key="frame" x="20" y="205" width="374" height="29"/>
@@ -370,6 +381,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="thr-ma-b3F"/>
+        <segue reference="uS7-ix-Va1"/>
     </inferredMetricsTieBreakers>
 </document>

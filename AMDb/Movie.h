@@ -12,7 +12,7 @@
 #import <AFNetworking/AFNetworking.h>
 
 
-@interface Movie : NSObject
+@interface Movie : RLMObject
 
 // Movie's attributes
 
@@ -27,9 +27,10 @@
 @property (nonatomic, copy) NSString *genre;
 @property (nonatomic, copy) NSString *rated;
 @property (nonatomic, copy) NSString *runtime;
-@property (nonatomic, copy) UIImage *moviePoster;
+//@property (nonatomic, copy) UIImage *moviePoster;
+@property (nonatomic, copy) NSData *moviePosterData;
 
 - (Movie *) initWithDictionary:(NSDictionary *)movieDictionary;
-- (void) getPosterWithURL: (NSURL *) moviePosterURL;
 
 @end
+RLM_ARRAY_TYPE(Movie)

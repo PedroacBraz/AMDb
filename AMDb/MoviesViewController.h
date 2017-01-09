@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Movie.h"
+#import "MovieCell.h"
 
 @interface MoviesViewController : UITableViewController
 
 @property (nonatomic, strong) NSMutableArray *movies;
+@property (weak, nonatomic) IBOutlet UILabel *noMoviesLabel;
+
     
 @end

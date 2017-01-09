@@ -7,7 +7,7 @@
 //
 
 #import "FullMovieViewController.h"
-#import "UIImageView+AFNetworking.h"
+
 
 @interface FullMovieViewController ()
 
@@ -26,7 +26,7 @@
     [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         // responseObject is _NSDictionary
-
+        // create a Init
         _movieTitleLabel.text = [responseObject objectForKey:@"Title"];
         _movieYearLabel.text = [responseObject objectForKey:@"Year"];
         _movieRatingLabel.text = [_movieRatingLabel.text stringByAppendingString:[responseObject objectForKey:@"imdbRating"]];
@@ -38,6 +38,9 @@
         _movieRuntimeLabel.text = [_movieRuntimeLabel.text stringByAppendingString:[responseObject objectForKey:@"Runtime"]];
         _moviePosterURL = [responseObject objectForKey:@"Poster"];
         [_moviePosterImageView setImageWithURL:[NSURL URLWithString:_moviePosterURL]];
+
+        self.movietoAddInFavorites = [[Movie alloc] initWithDictionary: responseObject];
+        self.movietoAddInFavorites.moviePosterData = UIImageJPEGRepresentation(self.moviePosterImageView.image, 1.0);
         
         
     } failure:^(NSURLSessionTask *operation, NSError *error) {
@@ -65,4 +68,13 @@
 }
 
 
+
+- (IBAction)favoriteMovieButtonTouched:(id)sender {
+    
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm beginWriteTransaction];
+    [realm addObject:_movietoAddInFavorites];
+    [realm commitWriteTransaction];
+    NSLog(@"%@",[RLMRealmConfiguration defaultConfiguration].fileURL);
+}
 @end
