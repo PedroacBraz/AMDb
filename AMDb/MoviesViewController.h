@@ -9,11 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "Movie.h"
 #import "MovieCell.h"
+#import "FullMovieViewController.h"
 
-@interface MoviesViewController : UITableViewController
+@interface MoviesViewController : UITableViewController{
+    RLMResults *movieResults;
+    Movie *selectedDataObject;
 
-@property (nonatomic, strong) NSMutableArray *movies;
+}
+
+@property (nonatomic, strong) NSArray *movies;
+
+
 @property (weak, nonatomic) IBOutlet UILabel *noMoviesLabel;
 
-    
+
+
 @end

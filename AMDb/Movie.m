@@ -26,11 +26,12 @@
     movie.genre             = [movieDictionary objectForKey:@"Genre"];
     movie.rated             = [movieDictionary objectForKey:@"Rated"];
     movie.runtime           = [movieDictionary objectForKey:@"Runtime"];
-    movie.rating            = [movieDictionary objectForKey:@"Rating"];
-    movie.shortSynopsis     = [movieDictionary objectForKey:@"Runtime"];
+    movie.rating            = [movieDictionary objectForKey:@"imdbRating"];
+    movie.shortSynopsis     = [movieDictionary objectForKey:@"Plot"];
     
     return movie;
     
 }
 
 @end
+RLM_ARRAY_TYPE(Movie)

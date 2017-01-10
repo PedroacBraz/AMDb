@@ -61,7 +61,7 @@
     NSString *URLForSearch = @"http://www.omdbapi.com/?t=";
     URLForSearch = [URLForSearch stringByAppendingString:movieTitle];
     URLForSearch = [URLForSearch stringByAppendingString:@"&y=&plot=short&r=json"];
-    URLForSearch= [URLForSearch stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+    URLForSearch = [URLForSearch stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     //NSLog(@"%@", URLForSearch);
     return URLForSearch;
     
@@ -71,10 +71,14 @@
 
 - (IBAction)favoriteMovieButtonTouched:(id)sender {
     
-    RLMRealm *realm = [RLMRealm defaultRealm];
-    [realm beginWriteTransaction];
-    [realm addObject:_movietoAddInFavorites];
-    [realm commitWriteTransaction];
+    dispatch_async(dispatch_queue_create("background", 0), ^{
+        RLMRealm *realm = [RLMRealm defaultRealm];
+        [realm beginWriteTransaction];
+        [realm addObject:_movietoAddInFavorites];
+        [realm commitWriteTransaction];
+    });
+    
     NSLog(@"%@",[RLMRealmConfiguration defaultConfiguration].fileURL);
+    
 }
 @end

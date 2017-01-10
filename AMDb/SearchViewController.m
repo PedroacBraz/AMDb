@@ -7,11 +7,7 @@
 //
 
 #import "SearchViewController.h"
-#import "MTLSearchMovie.h"
-#import "MovieSearchCell.h"
-#import "Movie.h"
-#import "UIImageView+AFNetworking.h"
-#import "FullMovieViewController.h"
+
 
 @interface SearchViewController ()
 
@@ -26,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.searchBar.delegate = self;
-    _movies = [NSMutableArray arrayWithCapacity:10];
+    self.movies = [NSMutableArray arrayWithCapacity:10];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -88,7 +84,7 @@
     // When searching with pages, for each result in the page, the API will provide ONLY information about the movie's Title, Year, Type, imdbID and poster's URL
     NSString *myURLString = [self createURLforSearch:(searchBar.text)];
     NSURL *URL = [NSURL URLWithString:myURLString];
-       [_movies removeAllObjects];
+       [self.movies removeAllObjects];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
     [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {

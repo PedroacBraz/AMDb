@@ -33,4 +33,4 @@
 - (Movie *) initWithDictionary:(NSDictionary *)movieDictionary;
 
 @end
-RLM_ARRAY_TYPE(Movie)
+

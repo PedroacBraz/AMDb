@@ -12,6 +12,11 @@
 #import <AFNetworking/AFNetworking.h>
 #import "MTLSearchMovie.h"
 #import <AFNetworking/AFImageDownloader.h>
+#import "MTLSearchMovie.h"
+#import "MovieSearchCell.h"
+#import "Movie.h"
+#import "UIImageView+AFNetworking.h"
+#import "FullMovieViewController.h"
 
 
 @interface SearchViewController : UITableViewController <UISearchBarDelegate>

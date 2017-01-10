@@ -18,15 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    RLMResults<Movie *> *moviesResult = [Movie allObjects];
-    
-    _movies = [[NSMutableArray alloc] init];
-    
-    for (RLMObject *RLMMovie in moviesResult) {
-        [self.movies addObject:RLMMovie];
-    }
-    
-    [self.tableView reloadData];
+    movieResults = [Movie allObjects];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,7 +36,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return [self.movies count];
+    return [movieResults count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -52,14 +45,15 @@
     
     // Configure what the cell must display
     
-    Movie *movie = (self.movies)[indexPath.row];
-    
+    Movie *movie = [movieResults objectAtIndex:indexPath.row];
+
     cell.posterImageView.image = [UIImage imageWithData:movie.moviePosterData];
     cell.titleLabel.text = movie.title;
     cell.yearLabel.text = movie.year;
     cell.ratingLabel.text = @"Rating: ";
     cell.ratingLabel.text = [cell.ratingLabel.text stringByAppendingString:movie.rating];
-    cell.shortSynLabel.text = movie.shortSynopsis;
+    cell.shortSynopsisLabel.text = movie.shortSynopsis;
+    
     
     if ([_movies count] == 0){
         cell.noMoviesLabel.enabled = YES;
@@ -67,6 +61,30 @@
     
     return cell;
 }
+
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self.tableView reloadData];
+}
+
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"showMovieDetail"]) {
+        
+        UIButton *senderButton = (UIButton *)sender;
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:senderButton.tag inSection:0];
+        //NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        // Index path is nil if invalid
+        FullMovieViewController *destViewController = segue.destinationViewController;
+        // The destViewController is the FullMovieViewController
+        destViewController.movie = [_movies objectAtIndex:indexPath.row];
+        
+    }
+}
+
 
 
 @end
