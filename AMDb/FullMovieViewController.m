@@ -67,8 +67,6 @@
     
 }
 
-
-
 - (IBAction)favoriteMovieButtonTouched:(id)sender {
     
     dispatch_async(dispatch_queue_create("background", 0), ^{

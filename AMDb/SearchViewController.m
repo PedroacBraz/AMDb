@@ -22,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.searchBar.delegate = self;
-    self.movies = [NSMutableArray arrayWithCapacity:10];
+    _movies = [NSMutableArray arrayWithCapacity:10];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -84,7 +84,7 @@
     // When searching with pages, for each result in the page, the API will provide ONLY information about the movie's Title, Year, Type, imdbID and poster's URL
     NSString *myURLString = [self createURLforSearch:(searchBar.text)];
     NSURL *URL = [NSURL URLWithString:myURLString];
-       [self.movies removeAllObjects];
+       [_movies removeAllObjects];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
     [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
@@ -119,7 +119,6 @@
         
         UIButton *senderButton = (UIButton *)sender;
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:senderButton.tag inSection:0];
-        //NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         // Index path is nil if invalid
         FullMovieViewController *destViewController = segue.destinationViewController;
         // The destViewController is the FullMovieViewController

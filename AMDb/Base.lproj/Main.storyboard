@@ -92,6 +92,7 @@
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                 </accessibility>
                                 <connections>
+                                    <outlet property="movieCellButton" destination="RgA-tm-c4e" id="BAz-ar-9Ae"/>
                                     <outlet property="posterImageView" destination="I9q-Ii-Bky" id="Tuw-EK-doP"/>
                                     <outlet property="ratingLabel" destination="l8B-SC-6Jy" id="EC3-0H-xu9"/>
                                     <outlet property="shortSynopsisLabel" destination="38T-Gm-C8c" id="hPr-4d-fW8"/>
@@ -147,7 +148,7 @@
                                                 <segue destination="7Wc-xZ-Khd" kind="show" identifier="showMovieDetail" id="thr-ma-b3F"/>
                                             </connections>
                                         </button>
-                                        <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" tag="101" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e9I-qh-yBh">
+                                        <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e9I-qh-yBh">
                                             <rect key="frame" x="0.0" y="-3" width="414" height="183"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQH-AP-Upk">

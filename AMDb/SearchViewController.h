@@ -19,6 +19,7 @@
 #import "FullMovieViewController.h"
 
 
+
 @interface SearchViewController : UITableViewController <UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;

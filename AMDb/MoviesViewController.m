@@ -53,7 +53,7 @@
     cell.ratingLabel.text = @"Rating: ";
     cell.ratingLabel.text = [cell.ratingLabel.text stringByAppendingString:movie.rating];
     cell.shortSynopsisLabel.text = movie.shortSynopsis;
-    
+    cell.movieCellButton.tag = indexPath.row;
     
     if ([_movies count] == 0){
         cell.noMoviesLabel.enabled = YES;
@@ -76,11 +76,10 @@
         
         UIButton *senderButton = (UIButton *)sender;
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:senderButton.tag inSection:0];
-        //NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         // Index path is nil if invalid
         FullMovieViewController *destViewController = segue.destinationViewController;
-        // The destViewController is the FullMovieViewController
-        destViewController.movie = [_movies objectAtIndex:indexPath.row];
+        // The destViewController is the FullMovieViewControlle;
+        destViewController.movie = [movieResults objectAtIndex:indexPath.row];
         
     }
 }

@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *ratingLabel;
 @property (nonatomic, weak) IBOutlet UILabel *shortSynopsisLabel;
 @property (weak, nonatomic) IBOutlet UILabel *noMoviesLabel;
+@property (weak, nonatomic) IBOutlet UIButton *movieCellButton;
 
 
 @end
