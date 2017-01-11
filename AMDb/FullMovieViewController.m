@@ -17,13 +17,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
- 
+    
+    
+    
+    // Scan all favorited movies to check if it is already favorited
+    
     // When searching with pages, for each result in the page, the API will provide ONLY information about the movie's Title, Year, Type, imdbID and poster's URL
     NSString *myURLString = [self createURLforSearch:(self.movie.title)];
     NSURL *URL = [NSURL URLWithString:myURLString];
 
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+
+        
         NSLog(@"JSON: %@", responseObject);
         // responseObject is _NSDictionary
         // create a Init
@@ -39,9 +45,18 @@
         _moviePosterURL = [responseObject objectForKey:@"Poster"];
         [_moviePosterImageView setImageWithURL:[NSURL URLWithString:_moviePosterURL]];
 
-        self.movietoAddInFavorites = [[Movie alloc] initWithDictionary: responseObject];
-        self.movietoAddInFavorites.moviePosterData = UIImageJPEGRepresentation(self.moviePosterImageView.image, 1.0);
+        //self.movietoAddInFavorites = [[Movie alloc] initWithDictionary: responseObject];
+        //self.movietoAddInFavorites.moviePosterData = UIImageJPEGRepresentation(self.moviePosterImageView.image, 1.0);
+        self.movieInfos = responseObject;
         
+        if ([self checkIfIsFavorited:[responseObject objectForKey:@"imdbID"]]){
+            self.favoriteButton.enabled = NO;
+            self.removeButton.enabled = YES;
+        }else{
+            self.favoriteButton.enabled = YES;
+            self.removeButton.enabled = NO;
+        }
+
         
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
@@ -67,16 +82,49 @@
     
 }
 
+- (IBAction)removeMovieButtonTouched:(id)sender {
+        
+    RLMResults<Movie *> *movieToDelete = [Movie objectsWhere:@"imdbID = %@", [_movieInfos objectForKey:@"imdbID"]];
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm beginWriteTransaction];
+    [realm deleteObjects:movieToDelete];
+    [realm commitWriteTransaction];
+    _removeButton.enabled = NO;
+    _favoriteButton.enabled = YES;
+
+    
+}
+
 - (IBAction)favoriteMovieButtonTouched:(id)sender {
     
-    dispatch_async(dispatch_queue_create("background", 0), ^{
-        RLMRealm *realm = [RLMRealm defaultRealm];
-        [realm beginWriteTransaction];
-        [realm addObject:_movietoAddInFavorites];
-        [realm commitWriteTransaction];
-    });
+
+    self.movietoAddInFavorites = [[Movie alloc] initWithDictionary: _movieInfos];
+    self.movietoAddInFavorites.moviePosterData = UIImageJPEGRepresentation(self.moviePosterImageView.image, 1.0);
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm beginWriteTransaction];
+    [realm addObject:_movietoAddInFavorites];
+    [realm commitWriteTransaction];
+    
+    _favoriteButton.enabled = NO;
+    _removeButton.enabled = YES;
     
     NSLog(@"%@",[RLMRealmConfiguration defaultConfiguration].fileURL);
     
 }
+
+- (BOOL)checkIfIsFavorited:(NSString *) imdbID{
+    
+    RLMResults <Movie *> *movieWithID = [Movie objectsWhere:@"imdbID = %@", imdbID];
+    NSLog(@"%lu", (unsigned long)movieWithID.count);
+    
+    if(movieWithID.count > 0){
+        NSLog(@"Returning YES");
+        return YES;
+    }else{
+        NSLog(@"Returning NO");
+        return NO;
+    }
+
+}
+
 @end

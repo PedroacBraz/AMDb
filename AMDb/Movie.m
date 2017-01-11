@@ -28,6 +28,7 @@
     movie.runtime           = [movieDictionary objectForKey:@"Runtime"];
     movie.rating            = [movieDictionary objectForKey:@"imdbRating"];
     movie.shortSynopsis     = [movieDictionary objectForKey:@"Plot"];
+    movie.imdbID            = [movieDictionary objectForKey:@"imdbID"];
     
     return movie;
     

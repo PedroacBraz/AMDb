@@ -29,7 +29,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" alpha="0.14999999999999999" tag="101" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I9q-Ii-Bky">
-                                            <rect key="frame" x="-2" y="-5" width="416" height="168"/>
+                                            <rect key="frame" x="-2" y="-5" width="416" height="165"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8B-SC-6Jy">
@@ -48,12 +48,12 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="105" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ShortSynopsis" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="38T-Gm-C8c">
-                                            <rect key="frame" x="5" y="65" width="401" height="97"/>
-                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                            <rect key="frame" x="5" y="65" width="401" height="73"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                             <nil key="textColor"/>
                                             <color key="highlightedColor" red="1" green="0.98087547429830713" blue="0.99568438583015395" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="shadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <size key="shadowOffset" width="0.0" height="0.0"/>
+                                            <size key="shadowOffset" width="2" height="1"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="103" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpU-ku-o1a">
                                             <rect key="frame" x="5" y="37" width="174" height="23"/>
@@ -81,7 +81,7 @@
                                         <constraint firstItem="OHe-2J-38M" firstAttribute="top" secondItem="bb9-q7-NfO" secondAttribute="topMargin" id="ARM-lf-MEE"/>
                                         <constraint firstItem="l8B-SC-6Jy" firstAttribute="baseline" secondItem="tpU-ku-o1a" secondAttribute="firstBaseline" id="BBc-Ml-0dI"/>
                                         <constraint firstItem="OHe-2J-38M" firstAttribute="leading" secondItem="bb9-q7-NfO" secondAttribute="leadingMargin" constant="-3" id="CEh-mM-Oof"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="38T-Gm-C8c" secondAttribute="bottom" constant="-1" id="G9J-Af-KMW"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="38T-Gm-C8c" secondAttribute="bottom" constant="24" id="G9J-Af-KMW"/>
                                         <constraint firstItem="tpU-ku-o1a" firstAttribute="leading" secondItem="38T-Gm-C8c" secondAttribute="leading" id="M4L-1J-bLA"/>
                                         <constraint firstItem="l8B-SC-6Jy" firstAttribute="trailing" secondItem="38T-Gm-C8c" secondAttribute="trailing" id="gsS-Kq-zOW"/>
                                         <constraint firstItem="tpU-ku-o1a" firstAttribute="centerY" secondItem="l8B-SC-6Jy" secondAttribute="centerY" id="huZ-yS-Oq1"/>
@@ -265,17 +265,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="3Zv-yg-Ze5">
-                                <rect key="frame" x="20" y="353" width="374" height="301"/>
+                                <rect key="frame" x="20" y="353" width="374" height="255"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="0.030955693493150686" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fos-5l-W82">
-                                <rect key="frame" x="20" y="662" width="374" height="30"/>
+                                <rect key="frame" x="20" y="616" width="374" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Add to Favorites"/>
                                 <connections>
                                     <action selector="favoriteMovieButtonTouched:" destination="7Wc-xZ-Khd" eventType="touchUpInside" id="yJC-8r-AHl"/>
@@ -316,6 +316,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQQ-pc-xua">
+                                <rect key="frame" x="20" y="654" width="374" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Remove from Favorites"/>
+                                <connections>
+                                    <action selector="removeMovieButtonTouched:" destination="7Wc-xZ-Khd" eventType="touchUpInside" id="nyt-1V-0lK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -338,6 +348,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="favoriteButton" destination="Fos-5l-W82" id="EZF-qc-UG7"/>
                         <outlet property="movieActorsLabel" destination="eQi-Q8-KAf" id="WdW-sO-N4J"/>
                         <outlet property="movieDirectorLabel" destination="BEd-ye-KMC" id="zmp-3O-AnD"/>
                         <outlet property="movieGenreLabel" destination="9kI-e7-xO1" id="ARG-xb-a91"/>
@@ -348,6 +359,7 @@
                         <outlet property="movieSynopsisTextView" destination="3Zv-yg-Ze5" id="iE7-yY-eaL"/>
                         <outlet property="movieTitleLabel" destination="ggv-Qp-Ejx" id="B9r-SP-K62"/>
                         <outlet property="movieYearLabel" destination="wdE-aO-3CY" id="kgb-mo-VwB"/>
+                        <outlet property="removeButton" destination="hQQ-pc-xua" id="yOh-mf-HWR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qg4-YP-fOK" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -10,6 +10,8 @@
 #import "Movie.h"
 #import <Realm/Realm.h>
 #import "UIImageView+AFNetworking.h"
+#import <JGProgressHUD/JGProgressHUD.h>
+
 
 @interface FullMovieViewController : UIViewController
 
@@ -17,6 +19,7 @@
 @property (nonatomic, strong) Movie * movietoAddInFavorites;
 @property (nonatomic, strong) NSString * moviePosterURL;
 @property (nonatomic, strong) NSDictionary *movieData;
+@property (nonatomic, strong) NSDictionary *movieInfos;
 
 @property (weak, nonatomic) IBOutlet UILabel *movieTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *movieYearLabel;
@@ -28,8 +31,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *movieDirectorLabel;
 @property (weak, nonatomic) IBOutlet UILabel *movieRatedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *movieRuntimeLabel;
+@property (weak, nonatomic) IBOutlet UIButton *removeButton;
+@property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
 
+
+- (IBAction)removeMovieButtonTouched:(id)sender;
 - (IBAction)favoriteMovieButtonTouched:(id)sender;
 
-
+- (BOOL)checkIfIsFavorited:(NSString *) imdbID;
 @end

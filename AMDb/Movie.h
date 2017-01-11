@@ -27,7 +27,7 @@
 @property (nonatomic, copy) NSString *genre;
 @property (nonatomic, copy) NSString *rated;
 @property (nonatomic, copy) NSString *runtime;
-//@property (nonatomic, copy) UIImage *moviePoster;
+@property (nonatomic, copy) NSString *imdbID;
 @property (nonatomic, copy) NSData *moviePosterData;
 
 - (Movie *) initWithDictionary:(NSDictionary *)movieDictionary;

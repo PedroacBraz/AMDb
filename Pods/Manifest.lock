@@ -14,23 +14,29 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - JGProgressHUD (1.4)
   - Mantle (2.1.0):
     - Mantle/extobjc (= 2.1.0)
   - Mantle/extobjc (2.1.0)
   - Realm (2.1.2):
     - Realm/Headers (= 2.1.2)
   - Realm/Headers (2.1.2)
+  - UIView+Loading (1.0.0)
 
 DEPENDENCIES:
   - AFNetworking
+  - JGProgressHUD
   - Mantle
   - Realm
+  - UIView+Loading
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  JGProgressHUD: 1617b0940cf80bb53e8f7d6f0fd69252ea45d6d4
   Mantle: 2fa750afa478cd625a94230fbf1c13462f29395b
   Realm: efe855f4d977c8ce5a82d3116d9f1ff155a6550c
+  UIView+Loading: 29f188f7cb15779bb7e7572860cdcad1b1b12a82
 
-PODFILE CHECKSUM: 7baa1abd1967e3a8860d2b7cf674798a4ec8261b
+PODFILE CHECKSUM: 9336785fd4e5371ceaf56c9b2309039e1e699430
 
 COCOAPODS: 1.1.1

@@ -23,6 +23,7 @@
     [super viewDidLoad];
     self.searchBar.delegate = self;
     _movies = [NSMutableArray arrayWithCapacity:10];
+    _actualPage = @"2";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,6 +72,8 @@
     
     URLForSearch = [URLForSearch stringByAppendingString:movieTitle];
     URLForSearch = [URLForSearch stringByAppendingString:@"&y=&plot=short&r=json"];
+    //URLForSearch = [URLForSearch stringByAppendingString:@"&page="];
+    //URLForSearch = [URLForSearch stringByAppendingString:_actualPage];
     URLForSearch= [URLForSearch stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     
     NSLog(@"%@", URLForSearch);

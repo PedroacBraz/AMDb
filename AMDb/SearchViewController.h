@@ -25,7 +25,7 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, strong) NSMutableArray *searchedMovies;
 @property (nonatomic, strong) NSMutableArray *movies;
-
+@property (nonatomic, strong) NSString *actualPage;
 
 - (IBAction)touchedMoviePosterButton:(id)sender;
 

@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>JGProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Mantle.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -34,10 +39,15 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>UIView+Loading.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1B5CDC54EC7F2FA6C5D4E2EA242D3F07</key>
+		<key>24F73826C21CBCBE186224114BD582A1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,12 +67,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B1C2838865C96F46B2AFE18128F66E78</key>
+		<key>CF671F7E57B92905F1CC91D036D6B4A7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CF671F7E57B92905F1CC91D036D6B4A7</key>
+		<key>EC397B1D644F3E51A582FF4AA3A3C01D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F065932A373A1A280C8B5ED461B0F125</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FD522C238A33C0AB2E3853C46235CA73</key>
 		<dict>
 			<key>primary</key>
 			<true/>
