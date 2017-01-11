@@ -17,7 +17,7 @@
 #import "Movie.h"
 #import "UIImageView+AFNetworking.h"
 #import "FullMovieViewController.h"
-
+#import "MBProgressHUD.h"
 
 
 @interface SearchViewController : UITableViewController <UISearchBarDelegate>

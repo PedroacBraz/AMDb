@@ -10,7 +10,7 @@
 #import "Movie.h"
 #import <Realm/Realm.h>
 #import "UIImageView+AFNetworking.h"
-#import <JGProgressHUD/JGProgressHUD.h>
+#import "MBProgressHUD.h"
 
 
 @interface FullMovieViewController : UIViewController

@@ -20,6 +20,21 @@
     
     movieResults = [Movie allObjects];
     movieResults = [movieResults sortedResultsUsingProperty:@"title" ascending:YES];
+    
+    
+    if(movieResults.count == 0){
+        
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"No favorite movies yet!"
+                                                                       message:@"You can use the search button above to find your favorite movies."
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * action) {}];
+        
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning {

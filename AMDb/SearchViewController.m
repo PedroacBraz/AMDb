@@ -24,6 +24,7 @@
     self.searchBar.delegate = self;
     _movies = [NSMutableArray arrayWithCapacity:10];
     _actualPage = @"1";
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -85,50 +86,64 @@
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     
     
-    // When searching with pages, for each result in the page, the API will provide ONLY information about the movie's Title, Year, Type, imdbID and poster's URL
-    NSString *myURLString = [self createURLforSearch:(searchBar.text)];
-    NSURL *URL = [NSURL URLWithString:myURLString];
-       [_movies removeAllObjects];
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
-    [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
-        // responseObject is _NSDictionary
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        // Do something...
         
-        MTLSearchMovies *searchMovies = [MTLJSONAdapter modelOfClass:[MTLSearchMovies class] fromJSONDictionary:responseObject error:NULL];
         
-        self.searchedMovies = [[NSMutableArray alloc] initWithObjects:searchMovies, nil];
-        // Here, searched movies has the response, searchResults and searchResultsQty
-        // seachResults is a NSArray with the movies data in each position, now, to use each position to create a movie and add it on movies array
-        for (NSDictionary *auxMovie in searchMovies.searchResults){
+        // When searching with pages, for each result in the page, the API will provide ONLY information about the movie's Title, Year, Type, imdbID and poster's URL
+        NSString *myURLString = [self createURLforSearch:(searchBar.text)];
+        NSURL *URL = [NSURL URLWithString:myURLString];
+        [_movies removeAllObjects];
+        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+        
+        [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+            NSLog(@"JSON: %@", responseObject);
+            // responseObject is _NSDictionary
             
-            if (auxMovie != nil){
-        
-                [self.movies addObject:[[Movie alloc] initWithDictionary: auxMovie]];
+            MTLSearchMovies *searchMovies = [MTLJSONAdapter modelOfClass:[MTLSearchMovies class] fromJSONDictionary:responseObject error:NULL];
+            
+            self.searchedMovies = [[NSMutableArray alloc] initWithObjects:searchMovies, nil];
+            // Here, searched movies has the response, searchResults and searchResultsQty
+            // seachResults is a NSArray with the movies data in each position, now, to use each position to create a movie and add it on movies array
+            for (NSDictionary *auxMovie in searchMovies.searchResults){
+                
+                if (auxMovie != nil){
+                    
+                    [self.movies addObject:[[Movie alloc] initWithDictionary: auxMovie]];
+                }
             }
-        }
+            
+            [self.tableView reloadData];
+            
+            if([[responseObject objectForKey:@"Response"] isEqualToString:@"False"]){
+                
+                UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"No movies were found."
+                                                                               message:@"You can try a new search."
+                                                                        preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                      handler:^(UIAlertAction * action) {}];
+                
+                [alert addAction:defaultAction];
+                [self presentViewController:alert animated:YES completion:nil];
+                
+            }
+            
+            
+            
+        } failure:^(NSURLSessionTask *operation, NSError *error) {
+            NSLog(@"Error: %@", error);
+        }];
 
-        [self.tableView reloadData];
-        
-        if([[responseObject objectForKey:@"Response"] isEqualToString:@"False"]){
-            
-            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"No movies were found."
-                                                                           message:@"You can try a new search."
-                                                                    preferredStyle:UIAlertControllerStyleAlert];
-            
-            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
-                                                                  handler:^(UIAlertAction * action) {}];
-            
-            [alert addAction:defaultAction];
-            [self presentViewController:alert animated:YES completion:nil];
-        
-        }
         
         
-        
-    } failure:^(NSURLSessionTask *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        });
+    });
+    
+    
     
 }
 

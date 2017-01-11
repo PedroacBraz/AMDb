@@ -8,8 +8,7 @@ target 'AMDb' do
     pod 'AFNetworking'
     pod 'Realm'
     pod 'Mantle'
-    pod 'UIView+Loading'
-    pod 'JGProgressHUD'
+    pod 'MBProgressHUD'
 
   # Pods for AMDb
 
