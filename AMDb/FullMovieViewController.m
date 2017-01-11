@@ -56,6 +56,7 @@
             self.favoriteButton.enabled = YES;
             self.removeButton.enabled = NO;
         }
+        
 
         
     } failure:^(NSURLSessionTask *operation, NSError *error) {
@@ -77,7 +78,6 @@
     URLForSearch = [URLForSearch stringByAppendingString:movieTitle];
     URLForSearch = [URLForSearch stringByAppendingString:@"&y=&plot=short&r=json"];
     URLForSearch = [URLForSearch stringByReplacingOccurrencesOfString:@" " withString:@"+"];
-    //NSLog(@"%@", URLForSearch);
     return URLForSearch;
     
 }
@@ -108,7 +108,7 @@
     _favoriteButton.enabled = NO;
     _removeButton.enabled = YES;
     
-    NSLog(@"%@",[RLMRealmConfiguration defaultConfiguration].fileURL);
+    //NSLog(@"%@",[RLMRealmConfiguration defaultConfiguration].fileURL);
     
 }
 
@@ -118,10 +118,8 @@
     NSLog(@"%lu", (unsigned long)movieWithID.count);
     
     if(movieWithID.count > 0){
-        NSLog(@"Returning YES");
         return YES;
     }else{
-        NSLog(@"Returning NO");
         return NO;
     }
 

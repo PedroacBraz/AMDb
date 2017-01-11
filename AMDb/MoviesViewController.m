@@ -19,7 +19,7 @@
     [super viewDidLoad];
     
     movieResults = [Movie allObjects];
-
+    movieResults = [movieResults sortedResultsUsingProperty:@"title" ascending:YES];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -23,7 +23,7 @@
     [super viewDidLoad];
     self.searchBar.delegate = self;
     _movies = [NSMutableArray arrayWithCapacity:10];
-    _actualPage = @"2";
+    _actualPage = @"1";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,7 +54,6 @@
     cell.yearLabel.text = movieForCell.year;
     [cell.posterImageView setImageWithURL:[NSURL URLWithString:movieForCell.moviePosterURL]];
     cell.movieCellButton.tag = indexPath.row;
-    NSLog(@"Calling cellForRow!");
     return cell;
 }
 
@@ -71,7 +70,9 @@
     NSString *URLForSearch = @"http://www.omdbapi.com/?s=";
     
     URLForSearch = [URLForSearch stringByAppendingString:movieTitle];
-    URLForSearch = [URLForSearch stringByAppendingString:@"&y=&plot=short&r=json"];
+    URLForSearch = [URLForSearch stringByAppendingString:@"&page="];
+    URLForSearch = [URLForSearch stringByAppendingString:self.actualPage];
+    //URLForSearch = [URLForSearch stringByAppendingString:@"&y=&plot=short&r=json"];
     //URLForSearch = [URLForSearch stringByAppendingString:@"&page="];
     //URLForSearch = [URLForSearch stringByAppendingString:_actualPage];
     URLForSearch= [URLForSearch stringByReplacingOccurrencesOfString:@" " withString:@"+"];
@@ -108,6 +109,22 @@
         }
 
         [self.tableView reloadData];
+        
+        if([[responseObject objectForKey:@"Response"] isEqualToString:@"False"]){
+            
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"No movies were found."
+                                                                           message:@"You can try a new search."
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                  handler:^(UIAlertAction * action) {}];
+            
+            [alert addAction:defaultAction];
+            [self presentViewController:alert animated:YES completion:nil];
+        
+        }
+        
+        
         
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
