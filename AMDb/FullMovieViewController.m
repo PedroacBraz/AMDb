@@ -58,7 +58,7 @@
 - (void)initFullMovieScreenWithDictionary: (NSDictionary *) responseObject{
 
     _movieTitleLabel.text = [responseObject objectForKey:@"Title"];
-    _movieYearLabel.text = [responseObject objectForKey:@"Year"];
+    _movieYearLabel.text = [_movieYearLabel.text stringByAppendingString:[responseObject objectForKey:@"Released"]];
     _movieRatingLabel.text = [_movieRatingLabel.text stringByAppendingString:[responseObject objectForKey:@"imdbRating"]];
     _movieSynopsisTextView.text = [responseObject objectForKey:@"Plot"];
     _movieGenreLabel.text = [_movieGenreLabel.text stringByAppendingString:[responseObject objectForKey:@"Genre"]];
