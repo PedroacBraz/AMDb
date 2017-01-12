@@ -23,6 +23,7 @@
 		F4947CC81E0997C00078D984 /* AMDbUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F4947CC71E0997C00078D984 /* AMDbUITests.m */; };
 		F49688B11E15606E000348C7 /* MTLSearchMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = F49688B01E15606E000348C7 /* MTLSearchMovie.m */; };
 		F49688B41E158CDB000348C7 /* MovieSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F49688B31E158CDB000348C7 /* MovieSearchCell.m */; };
+		F4A2472E1E26A2A60088CB7C /* zup-it-innovation-original.png in Resources */ = {isa = PBXBuildFile; fileRef = F4A2472D1E26A2A60088CB7C /* zup-it-innovation-original.png */; };
 		F4F4ECA11E0D440200135948 /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F4ECA01E0D440200135948 /* MovieCell.m */; };
 		F4F4ECA81E0D537A00135948 /* posterArrival.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4F4ECA71E0D537A00135948 /* posterArrival.jpg */; };
 		F4F4ECAA1E0D57F900135948 /* posterRogueOne.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4F4ECA91E0D57F900135948 /* posterRogueOne.jpg */; };
@@ -94,6 +95,7 @@
 		F49688B01E15606E000348C7 /* MTLSearchMovie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTLSearchMovie.m; sourceTree = "<group>"; };
 		F49688B21E158CDB000348C7 /* MovieSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieSearchCell.h; sourceTree = "<group>"; };
 		F49688B31E158CDB000348C7 /* MovieSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieSearchCell.m; sourceTree = "<group>"; };
+		F4A2472D1E26A2A60088CB7C /* zup-it-innovation-original.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "zup-it-innovation-original.png"; path = "../../Downloads/zup-it-innovation-original.png"; sourceTree = "<group>"; };
 		F4F4EC9F1E0D440200135948 /* MovieCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieCell.h; sourceTree = "<group>"; };
 		F4F4ECA01E0D440200135948 /* MovieCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieCell.m; sourceTree = "<group>"; };
 		F4F4ECA71E0D537A00135948 /* posterArrival.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = posterArrival.jpg; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 		F41952A51E0ADEB000BD2F59 /* Posters */ = {
 			isa = PBXGroup;
 			children = (
+				F4A2472D1E26A2A60088CB7C /* zup-it-innovation-original.png */,
 				F4F4ECA91E0D57F900135948 /* posterRogueOne.jpg */,
 				F4F4ECA71E0D537A00135948 /* posterArrival.jpg */,
 			);
@@ -378,6 +381,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4A2472E1E26A2A60088CB7C /* zup-it-innovation-original.png in Resources */,
 				F4947CB21E0997C00078D984 /* LaunchScreen.storyboard in Resources */,
 				F4947CAF1E0997C00078D984 /* Assets.xcassets in Resources */,
 				F4F4ECA81E0D537A00135948 /* posterArrival.jpg in Resources */,

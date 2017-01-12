@@ -18,7 +18,6 @@
 }
 
 @property (nonatomic, strong) NSArray *movies;
-
 @property (weak, nonatomic) IBOutlet UILabel *noMoviesLabel;
 
 

@@ -23,7 +23,7 @@
     [super viewDidLoad];
     self.searchBar.delegate = self;
     _movies = [NSMutableArray arrayWithCapacity:10];
-    _actualPage = @"1";
+    self.actualPage = 1;
     
 }
 
@@ -40,8 +40,9 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    return [self.movies count];
+
+        return self.movies.count;
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -72,11 +73,8 @@
     
     URLForSearch = [URLForSearch stringByAppendingString:movieTitle];
     URLForSearch = [URLForSearch stringByAppendingString:@"&page="];
-    URLForSearch = [URLForSearch stringByAppendingString:self.actualPage];
-    //URLForSearch = [URLForSearch stringByAppendingString:@"&y=&plot=short&r=json"];
-    //URLForSearch = [URLForSearch stringByAppendingString:@"&page="];
-    //URLForSearch = [URLForSearch stringByAppendingString:_actualPage];
-    URLForSearch= [URLForSearch stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+    URLForSearch = [URLForSearch stringByAppendingString:[NSString stringWithFormat:@"%d",self.actualPage]];
+    URLForSearch = [URLForSearch stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     
     NSLog(@"%@", URLForSearch);
     return URLForSearch;
@@ -86,6 +84,7 @@
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     
     
+    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         // Do something...
@@ -93,6 +92,7 @@
         
         // When searching with pages, for each result in the page, the API will provide ONLY information about the movie's Title, Year, Type, imdbID and poster's URL
         NSString *myURLString = [self createURLforSearch:(searchBar.text)];
+        _searchBarText = searchBar.text;
         NSURL *URL = [NSURL URLWithString:myURLString];
         [_movies removeAllObjects];
         AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -129,29 +129,23 @@
                 [self presentViewController:alert animated:YES completion:nil];
                 
             }
-            
-            
-            
+    
         } failure:^(NSURLSessionTask *operation, NSError *error) {
             NSLog(@"Error: %@", error);
         }];
 
-        
-        
         dispatch_async(dispatch_get_main_queue(), ^{
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         });
     });
     
-    
-    
 }
+
 
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showMovieDetail"]) {
-        
         UIButton *senderButton = (UIButton *)sender;
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:senderButton.tag inSection:0];
         // Index path is nil if invalid

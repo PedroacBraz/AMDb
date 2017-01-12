@@ -39,4 +39,7 @@
 - (IBAction)favoriteMovieButtonTouched:(id)sender;
 
 - (BOOL)checkIfIsFavorited:(NSString *) imdbID;
+
+- (void)initFullMovieScreenWithDictionary: (NSDictionary *) responseObject;
+
 @end

@@ -21,7 +21,6 @@
     movieResults = [Movie allObjects];
     movieResults = [movieResults sortedResultsUsingProperty:@"title" ascending:YES];
     
-    
     if(movieResults.count == 0){
         
         UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"No favorite movies yet!"

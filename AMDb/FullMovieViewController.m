@@ -17,9 +17,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-
     // When searching with pages, for each result in the page, the API will provide ONLY information about the movie's Title, Year, Type, imdbID and poster's URL
     NSString *myURLString = [self createURLforSearch:(self.movie.title)];
     NSURL *URL = [NSURL URLWithString:myURLString];
@@ -32,24 +29,9 @@
         AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
         [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
             
-            
             NSLog(@"JSON: %@", responseObject);
             // responseObject is _NSDictionary
-            // create a Init
-            _movieTitleLabel.text = [responseObject objectForKey:@"Title"];
-            _movieYearLabel.text = [responseObject objectForKey:@"Year"];
-            _movieRatingLabel.text = [_movieRatingLabel.text stringByAppendingString:[responseObject objectForKey:@"imdbRating"]];
-            _movieSynopsisTextView.text = [responseObject objectForKey:@"Plot"];
-            _movieGenreLabel.text = [_movieGenreLabel.text stringByAppendingString:[responseObject objectForKey:@"Genre"]];
-            _movieActorsLabel.text = [_movieActorsLabel.text stringByAppendingString:[responseObject objectForKey:@"Actors"]];
-            _movieDirectorLabel.text = [_movieDirectorLabel.text stringByAppendingString:[responseObject objectForKey:@"Director"]];
-            _movieRatedLabel.text = [_movieRatedLabel.text stringByAppendingString:[responseObject objectForKey:@"Rated"]];
-            _movieRuntimeLabel.text = [_movieRuntimeLabel.text stringByAppendingString:[responseObject objectForKey:@"Runtime"]];
-            _moviePosterURL = [responseObject objectForKey:@"Poster"];
-            [_moviePosterImageView setImageWithURL:[NSURL URLWithString:_moviePosterURL]];
-            
-            //self.movietoAddInFavorites = [[Movie alloc] initWithDictionary: responseObject];
-            //self.movietoAddInFavorites.moviePosterData = UIImageJPEGRepresentation(self.moviePosterImageView.image, 1.0);
+            [self initFullMovieScreenWithDictionary:responseObject];
             self.movieInfos = responseObject;
             
             if ([self checkIfIsFavorited:[responseObject objectForKey:@"imdbID"]]){
@@ -61,18 +43,32 @@
             }
             
             
-            
         } failure:^(NSURLSessionTask *operation, NSError *error) {
             NSLog(@"Error: %@", error);
         }];
 
-        
-        
         dispatch_async(dispatch_get_main_queue(), ^{
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         });
     });
     
+}
+
+
+- (void)initFullMovieScreenWithDictionary: (NSDictionary *) responseObject{
+
+    _movieTitleLabel.text = [responseObject objectForKey:@"Title"];
+    _movieYearLabel.text = [responseObject objectForKey:@"Year"];
+    _movieRatingLabel.text = [_movieRatingLabel.text stringByAppendingString:[responseObject objectForKey:@"imdbRating"]];
+    _movieSynopsisTextView.text = [responseObject objectForKey:@"Plot"];
+    _movieGenreLabel.text = [_movieGenreLabel.text stringByAppendingString:[responseObject objectForKey:@"Genre"]];
+    _movieActorsLabel.text = [_movieActorsLabel.text stringByAppendingString:[responseObject objectForKey:@"Actors"]];
+    _movieDirectorLabel.text = [_movieDirectorLabel.text stringByAppendingString:[responseObject objectForKey:@"Director"]];
+    _movieRatedLabel.text = [_movieRatedLabel.text stringByAppendingString:[responseObject objectForKey:@"Rated"]];
+    _movieRuntimeLabel.text = [_movieRuntimeLabel.text stringByAppendingString:[responseObject objectForKey:@"Runtime"]];
+    _moviePosterURL = [responseObject objectForKey:@"Poster"];
+    [_moviePosterImageView setImageWithURL:[NSURL URLWithString:_moviePosterURL]];
+
 }
 
 - (void)didReceiveMemoryWarning {
