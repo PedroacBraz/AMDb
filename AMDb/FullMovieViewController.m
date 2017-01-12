@@ -118,6 +118,11 @@
     
 }
 
+- (IBAction)showFullScreenPoster:(id)sender {
+    
+    [EXPhotoViewer showImageFrom:self.moviePosterImageView];
+}
+
 - (BOOL)checkIfIsFavorited:(NSString *) imdbID{
     
     RLMResults <Movie *> *movieWithID = [Movie objectsWhere:@"imdbID = %@", imdbID];

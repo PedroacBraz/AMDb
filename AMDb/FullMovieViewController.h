@@ -11,6 +11,7 @@
 #import <Realm/Realm.h>
 #import "UIImageView+AFNetworking.h"
 #import "MBProgressHUD.h"
+#import "EXPhotoViewer.h"
 
 
 @interface FullMovieViewController : UIViewController
@@ -37,6 +38,7 @@
 
 - (IBAction)removeMovieButtonTouched:(id)sender;
 - (IBAction)favoriteMovieButtonTouched:(id)sender;
+- (IBAction)showFullScreenPoster:(id)sender;
 
 - (BOOL)checkIfIsFavorited:(NSString *) imdbID;
 

@@ -13,6 +13,7 @@
 		F4137E121E1535F30014D5E6 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4137E111E1535F30014D5E6 /* SearchViewController.m */; };
 		F434C4F31E0AB43D00445A7F /* MoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F434C4F21E0AB43D00445A7F /* MoviesViewController.m */; };
 		F434C4F61E0AC06300445A7F /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = F434C4F51E0AC06300445A7F /* Movie.m */; };
+		F44C7DD31E27BB3100F13498 /* EXPhotoViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = F44C7DD21E27BB3100F13498 /* EXPhotoViewer.m */; };
 		F465C0391E1BF0FC005D6297 /* FullMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F465C0381E1BF0FC005D6297 /* FullMovieViewController.m */; };
 		F4947CA41E0997C00078D984 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F4947CA31E0997C00078D984 /* main.m */; };
 		F4947CA71E0997C00078D984 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F4947CA61E0997C00078D984 /* AppDelegate.m */; };
@@ -75,6 +76,8 @@
 		F434C4F21E0AB43D00445A7F /* MoviesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviesViewController.m; sourceTree = "<group>"; };
 		F434C4F41E0AC06300445A7F /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
 		F434C4F51E0AC06300445A7F /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
+		F44C7DD11E27BB3100F13498 /* EXPhotoViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXPhotoViewer.h; sourceTree = "<group>"; };
+		F44C7DD21E27BB3100F13498 /* EXPhotoViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXPhotoViewer.m; sourceTree = "<group>"; };
 		F465C0371E1BF0FC005D6297 /* FullMovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullMovieViewController.h; sourceTree = "<group>"; };
 		F465C0381E1BF0FC005D6297 /* FullMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullMovieViewController.m; sourceTree = "<group>"; };
 		F4947C9F1E0997C00078D984 /* AMDb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AMDb.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -173,6 +176,8 @@
 				F4947CAE1E0997C00078D984 /* Assets.xcassets */,
 				F4947CB01E0997C00078D984 /* LaunchScreen.storyboard */,
 				F4947CB31E0997C00078D984 /* Info.plist */,
+				F44C7DD11E27BB3100F13498 /* EXPhotoViewer.h */,
+				F44C7DD21E27BB3100F13498 /* EXPhotoViewer.m */,
 			);
 			name = GUI;
 			sourceTree = "<group>";
@@ -342,7 +347,8 @@
 				TargetAttributes = {
 					F4947C9E1E0997C00078D984 = {
 						CreatedOnToolsVersion = 8.2;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = DGHJ3A5DWH;
+						ProvisioningStyle = Automatic;
 					};
 					F4947CB71E0997C00078D984 = {
 						CreatedOnToolsVersion = 8.2;
@@ -552,6 +558,7 @@
 				F465C0391E1BF0FC005D6297 /* FullMovieViewController.m in Sources */,
 				F49688B41E158CDB000348C7 /* MovieSearchCell.m in Sources */,
 				F4947CA71E0997C00078D984 /* AppDelegate.m in Sources */,
+				F44C7DD31E27BB3100F13498 /* EXPhotoViewer.m in Sources */,
 				F4F4ECA11E0D440200135948 /* MovieCell.m in Sources */,
 				F434C4F61E0AC06300445A7F /* Movie.m in Sources */,
 				F4947CA41E0997C00078D984 /* main.m in Sources */,
@@ -705,7 +712,8 @@
 			baseConfigurationReference = 8AE3308131A87900A3A76C6B /* Pods-AMDb.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = DGHJ3A5DWH;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = AMDb/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
@@ -719,7 +727,8 @@
 			baseConfigurationReference = 4B1E7097D110EE860EBDE069 /* Pods-AMDb.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = DGHJ3A5DWH;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = AMDb/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
