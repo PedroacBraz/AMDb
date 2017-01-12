@@ -35,11 +35,9 @@
             self.movieInfos = responseObject;
             
             if ([self checkIfIsFavorited:[responseObject objectForKey:@"imdbID"]]){
-                self.favoriteButton.enabled = NO;
-                self.removeButton.enabled = YES;
+                [self.favoriteOrDeleteMovieButton setTitle:@"Remove from Favorites" forState:UIControlStateNormal];
             }else{
-                self.favoriteButton.enabled = YES;
-                self.removeButton.enabled = NO;
+                [self.favoriteOrDeleteMovieButton setTitle:@"Add to Favorites" forState:UIControlStateNormal];
             }
             
             
@@ -88,33 +86,28 @@
     
 }
 
-- (IBAction)removeMovieButtonTouched:(id)sender {
+
+- (IBAction)favoriteOrRemoveButtonTouched:(id)sender {
+    
+    UIButton *movieButton = (UIButton*)sender;
+    if([movieButton.titleLabel.text isEqualToString:@"Remove from Favorites"]){
+        RLMResults<Movie *> *movieToDelete = [Movie objectsWhere:@"imdbID = %@", [_movieInfos objectForKey:@"imdbID"]];
+        RLMRealm *realm = [RLMRealm defaultRealm];
+        [realm beginWriteTransaction];
+        [realm deleteObjects:movieToDelete];
+        [realm commitWriteTransaction];
+        [self.favoriteOrDeleteMovieButton setTitle:@"Add to Favorites" forState:UIControlStateNormal];
         
-    RLMResults<Movie *> *movieToDelete = [Movie objectsWhere:@"imdbID = %@", [_movieInfos objectForKey:@"imdbID"]];
-    RLMRealm *realm = [RLMRealm defaultRealm];
-    [realm beginWriteTransaction];
-    [realm deleteObjects:movieToDelete];
-    [realm commitWriteTransaction];
-    _removeButton.enabled = NO;
-    _favoriteButton.enabled = YES;
-
-    
-}
-
-- (IBAction)favoriteMovieButtonTouched:(id)sender {
-    
-
-    self.movietoAddInFavorites = [[Movie alloc] initWithDictionary: _movieInfos];
-    self.movietoAddInFavorites.moviePosterData = UIImageJPEGRepresentation(self.moviePosterImageView.image, 1.0);
-    RLMRealm *realm = [RLMRealm defaultRealm];
-    [realm beginWriteTransaction];
-    [realm addObject:_movietoAddInFavorites];
-    [realm commitWriteTransaction];
-    
-    _favoriteButton.enabled = NO;
-    _removeButton.enabled = YES;
-    
-    //NSLog(@"%@",[RLMRealmConfiguration defaultConfiguration].fileURL);
+    }else if([movieButton.titleLabel.text isEqualToString:@"Add to Favorites"]){
+        
+        self.movietoAddInFavorites = [[Movie alloc] initWithDictionary: _movieInfos];
+        self.movietoAddInFavorites.moviePosterData = UIImageJPEGRepresentation(self.moviePosterImageView.image, 1.0);
+        RLMRealm *realm = [RLMRealm defaultRealm];
+        [realm beginWriteTransaction];
+        [realm addObject:_movietoAddInFavorites];
+        [realm commitWriteTransaction];
+        [self.favoriteOrDeleteMovieButton setTitle:@"Remove from Favorites" forState:UIControlStateNormal];
+    }
     
 }
 

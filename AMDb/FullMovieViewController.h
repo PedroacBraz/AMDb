@@ -32,12 +32,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *movieDirectorLabel;
 @property (weak, nonatomic) IBOutlet UILabel *movieRatedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *movieRuntimeLabel;
-@property (weak, nonatomic) IBOutlet UIButton *removeButton;
-@property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
+@property (weak, nonatomic) IBOutlet UIButton *favoriteOrDeleteMovieButton;
 
 
-- (IBAction)removeMovieButtonTouched:(id)sender;
-- (IBAction)favoriteMovieButtonTouched:(id)sender;
+- (IBAction)favoriteOrRemoveButtonTouched:(id)sender;
+
 - (IBAction)showFullScreenPoster:(id)sender;
 
 - (BOOL)checkIfIsFavorited:(NSString *) imdbID;
