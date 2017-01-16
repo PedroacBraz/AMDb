@@ -17,15 +17,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    /*
     // When searching with pages, for each result in the page, the API will provide ONLY information about the movie's Title, Year, Type, imdbID and poster's URL
     NSString *myURLString = [self createURLforSearch:(self.movie.title)];
-    NSURL *URL = [NSURL URLWithString:myURLString];
 
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-        // Do something...
-        
-        
+    
+        NSURL *URL = [NSURL URLWithString:myURLString];
         AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
         [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
             
@@ -40,16 +37,77 @@
                 [self.favoriteOrDeleteMovieButton setTitle:@"Add to Favorites" forState:UIControlStateNormal];
             }
             
+            [_hud hideAnimated:NO];
+            [_hud showAnimated:NO];
             
         } failure:^(NSURLSessionTask *operation, NSError *error) {
             NSLog(@"Error: %@", error);
         }];
 
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
-        });
-    });
     
+    [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+
+     */
+    
+    [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+    NSString *myURLString = [self createURLforSearch:(self.movie.title)];
+    
+    NSURL *URLforSearch = [NSURL URLWithString:myURLString];
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    NSURLRequest *request = [NSURLRequest requestWithURL:URLforSearch];
+    
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@", error);
+            UIAlertController * alert=   [UIAlertController
+                                          alertControllerWithTitle:@"An error has occurred!"
+                                          message:@"Try again."
+                                          preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction* Ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault
+                                                       handler:^(UIAlertAction * action) {
+                                                           [alert dismissViewControllerAnimated:YES completion:nil];
+                                                       }];
+            
+            [alert addAction:Ok];
+            [self presentViewController:alert animated:YES completion:nil];
+            [_hud hideAnimated:NO];
+            [_hud showAnimated:NO];
+            [dataTask resume];
+            [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+            
+        } else {
+            NSLog(@"JSON: %@", responseObject);
+            // responseObject is _NSDictionary
+            [self initFullMovieScreenWithDictionary:responseObject];
+            self.movieInfos = responseObject;
+            //Gradient image effect
+            CAGradientLayer *gradientLayer = [CAGradientLayer layer];
+            gradientLayer.frame = self.moviePosterImageView.bounds;
+            gradientLayer.colors = [NSArray arrayWithObjects:(id)[UIColor whiteColor].CGColor, (id)[UIColor clearColor].CGColor, nil];
+            gradientLayer.startPoint = CGPointMake(1.0f, 0.95f);
+            gradientLayer.endPoint = CGPointMake(1.0f, 1.0f);
+            self.moviePosterImageView.layer.mask = gradientLayer;
+            
+            
+            if ([self checkIfIsFavorited:[responseObject objectForKey:@"imdbID"]]){
+                [self.favoriteOrDeleteMovieButton setTitle:@"Remove from Favorites" forState:UIControlStateNormal];
+            }else{
+                [self.favoriteOrDeleteMovieButton setTitle:@"Add to Favorites" forState:UIControlStateNormal];
+            }
+
+            [_hud hideAnimated:NO];
+            [_hud showAnimated:NO];
+        }
+    }];
+    //Show Loading:
+    _hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    _hud.label.text = @"Loading";
+    [_hud hideAnimated:YES];
+    [_hud showAnimated:YES];
+    //call afnetwork in dataTask
+    [dataTask resume];
+    [[UIApplication sharedApplication] endIgnoringInteractionEvents];
 }
 
 

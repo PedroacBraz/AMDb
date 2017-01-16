@@ -33,6 +33,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *movieRatedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *movieRuntimeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *favoriteOrDeleteMovieButton;
+@property (nonatomic, retain) MBProgressHUD *hud;
 
 
 - (IBAction)favoriteOrRemoveButtonTouched:(id)sender;

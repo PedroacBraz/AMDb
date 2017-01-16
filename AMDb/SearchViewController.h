@@ -20,13 +20,15 @@
 #import "MBProgressHUD.h"
 
 
-@interface SearchViewController : UITableViewController <UISearchBarDelegate>
+@interface SearchViewController : UITableViewController <UISearchBarDelegate,UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, strong) NSMutableArray *searchedMovies;
 @property (nonatomic, strong) NSMutableArray *movies;
 @property (nonatomic) int actualPage;
+@property (nonatomic) int totalPages;
 @property (nonatomic, strong) NSString *searchBarText;
+@property (nonatomic, retain) MBProgressHUD *hud;
 
 - (IBAction)touchedMoviePosterButton:(id)sender;
 

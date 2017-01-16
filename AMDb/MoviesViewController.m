@@ -69,6 +69,14 @@
     cell.shortSynopsisLabel.text = movie.shortSynopsis;
     cell.movieCellButton.tag = indexPath.row;
     
+    CAGradientLayer *gradientLayer = [CAGradientLayer layer];
+    gradientLayer.frame = cell.posterImageView.bounds;
+    gradientLayer.colors = [NSArray arrayWithObjects:(id)[UIColor whiteColor].CGColor, (id)[UIColor clearColor].CGColor, nil];
+    gradientLayer.startPoint = CGPointMake(0.95f, 1.00f);
+    gradientLayer.endPoint = CGPointMake(1.0f, 1.0f);
+    cell.posterImageView.layer.mask = gradientLayer;
+    
+    
     if ([_movies count] == 0){
         cell.noMoviesLabel.enabled = YES;
     }

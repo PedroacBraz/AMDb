@@ -41,7 +41,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-        return self.movies.count;
+    return self.movies.count;
 
 }
 
@@ -56,6 +56,14 @@
     cell.yearLabel.text = movieForCell.year;
     [cell.posterImageView setImageWithURL:[NSURL URLWithString:movieForCell.moviePosterURL]];
     cell.movieCellButton.tag = indexPath.row;
+    
+    
+    CAGradientLayer *gradientLayer = [CAGradientLayer layer];
+    gradientLayer.frame = cell.posterImageView.bounds;
+    gradientLayer.colors = [NSArray arrayWithObjects:(id)[UIColor whiteColor].CGColor, (id)[UIColor clearColor].CGColor, nil];
+    gradientLayer.startPoint = CGPointMake(0.95f, 1.00f);
+    gradientLayer.endPoint = CGPointMake(1.0f, 1.0f);
+    cell.posterImageView.layer.mask = gradientLayer;
     return cell;
 }
 
@@ -84,12 +92,10 @@
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     
     
-    
+    self.actualPage = 1;
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        // Do something...
-        
-        
+
         // When searching with pages, for each result in the page, the API will provide ONLY information about the movie's Title, Year, Type, imdbID and poster's URL
         NSString *myURLString = [self createURLforSearch:(searchBar.text)];
         _searchBarText = searchBar.text;
@@ -129,6 +135,10 @@
                 [self presentViewController:alert animated:YES completion:nil];
                 
             }
+            
+            int totalResults = [[responseObject objectForKey:@"totalResults"] intValue];
+            _totalPages = ceil(totalResults%10);
+            
     
         } failure:^(NSURLSessionTask *operation, NSError *error) {
             NSLog(@"Error: %@", error);
@@ -139,6 +149,61 @@
         });
     });
     
+}
+// Manages the reload of movies when reaching the end of scroll
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSInteger lastSectionIndex = [tableView numberOfSections] - 1;
+    NSInteger lastRowIndex = [tableView numberOfRowsInSection:lastSectionIndex] - 1;
+    
+    if ((indexPath.section == lastSectionIndex) && (indexPath.row == lastRowIndex)) {
+        _actualPage+= 1;
+        if(_actualPage <=_totalPages){
+            //NSString *link = [NSString stringWithFormat:@"https://www.omdbapi.com/?s=%@&page=%d",_searche,_currentPage];
+            
+            NSString *URLString = [self createURLforSearch:(_searchBarText)];
+            
+            NSURL *URLforSearch = [NSURL URLWithString:URLString];
+            NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+            AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+            NSURLRequest *request = [NSURLRequest requestWithURL:URLforSearch];
+            
+            NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+                if (error) {
+                    NSLog(@"Error: %@", error);
+                    UIAlertController * alert=   [UIAlertController
+                                                  alertControllerWithTitle:@"An error has occurred!"
+                                                  message:@"Please check your internet connection."
+                                                  preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction* Ok = [UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault
+                                                               handler:^(UIAlertAction * action) {
+                                                                   [alert dismissViewControllerAnimated:YES completion:nil];
+                                                               }];
+                    
+                    [alert addAction:Ok];
+                    [self presentViewController:alert animated:YES completion:nil];
+                    
+                } else {
+                    NSDictionary *resultDictinary = [responseObject objectForKey:@"Search"];
+                    for (NSDictionary *movieDictionary in resultDictinary)
+                    {
+                        Movie *movie=[[Movie alloc]initWithDictionary:movieDictionary];
+                        [_movies addObject:movie];
+                    }
+                    [self.tableView reloadData];
+                    [_hud hideAnimated:NO];
+                    [_hud showAnimated:NO];
+                }
+            }];
+            //Show Loading:
+            _hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+            _hud.label.text = @"Loading";
+            [_hud hideAnimated:YES];
+            [_hud showAnimated:YES];
+            //call afnetwork in dataTask
+            [dataTask resume];
+        }
+    }
 }
 
 
